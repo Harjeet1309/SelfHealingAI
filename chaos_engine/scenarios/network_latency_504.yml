@@ -1,0 +1,34 @@
+# Network Latency — 504 Gateway Timeout
+# Simulates: slow upstream dependency, network congestion
+# Method: Toxiproxy network proxy — adds real network-level latency
+#         between the load balancer and api_service.
+#         The application code does NOT know this is happening.
+
+name: network_latency_504
+description: >
+  Uses Toxiproxy to inject real 3000ms±500ms network latency on the
+  api_service upstream. All HTTP responses are genuinely delayed at the
+  network layer. The application code is not touched.
+  Clients experience real timeouts → 504 errors.
+  The AI should detect via p95_latency spike and trigger restart.
+
+target_container: api_service
+method: toxiproxy               # network-level injection
+toxiproxy:
+  proxy_name: api_service_proxy
+  upstream: api_service:8000
+  listen: 0.0.0.0:8001
+  toxic:
+    type: latency
+    latency_ms: 3000
+    jitter_ms: 500
+duration_seconds: 90
+auto_recovery: toxiproxy_remove_toxic
+expected_alert: HTTP_504_SPIKE
+expected_action: RESTART_SUCCESS_VERIFIED
+severity: high
+tags:
+  - network
+  - latency
+  - toxiproxy
+  - 504

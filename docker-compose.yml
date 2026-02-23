@@ -1,0 +1,171 @@
+services:
+
+  api_service:
+    build:
+      context: ./api_service
+    container_name: api_service
+    volumes:
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    networks:
+      - selfheal_net
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./configs/alert.rules.yml:/etc/prometheus/alert.rules.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - selfheal_net
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    volumes:
+      - ./configs/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    ports:
+      - "9093:9093"
+    networks:
+      - selfheal_net
+
+  remediation_engine:
+    build:
+      context: .
+      dockerfile: remediation_engine/Dockerfile
+    container_name: remediation_engine
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PROMETHEUS_URL=http://prometheus:9090
+      - API_REPORT_URL=http://api_service:8000/ai/report
+      - API_RESET_URL=http://api_service:8000/inject/reset?target=all
+      - TARGET_CONTAINER_NAME=api_service
+      - DOCKER_SOCKET_URL=unix:///var/run/docker.sock
+      - AUTO_RESET_RETRIES=8
+      - AUTO_RESET_RETRY_DELAY_SECONDS=1.0
+      - REMEDIATION_COOLDOWN_SECONDS=60
+      - COOLDOWN_LOG_INTERVAL_SECONDS=10
+      - HIGH_CPU_THRESHOLD=70
+      - PROMETHEUS_TIMEOUT_SECONDS=10
+      - AI_WARMUP_SECONDS=90
+      - ANOMALY_CONFIRMATION_COUNT=1
+      - AI_ENABLE_REMEDIATION=true
+      - AI_REQUIRE_CORROBORATION=true
+      - AI_THRESHOLD_MULTIPLIER=4.0
+      - AI_DYNAMIC_WINDOW_SAMPLES=240
+      - AI_DYNAMIC_MIN_SAMPLES=40
+      - AI_DYNAMIC_PERCENTILE=99
+      - AI_MIN_REQUEST_RATE_FOR_SIGNAL=0.05
+      - AI_MIN_ERROR_RATE_FOR_SIGNAL=0.02
+      - AI_MIN_P95_FOR_SIGNAL=1.5
+      - RULE_QUERY_WINDOW=30s
+      - RULE_QUERY_STEP=5s
+      - RULE_LOOKBACK_SECONDS=60
+      - RULE_CONFIRMATION_COUNT=1
+      - RULE_PRECEDENCE_SECONDS=30
+      # Online learning + health verification
+      - ONLINE_FINE_TUNE_TRIGGER=500
+      - THRESHOLD_PERSIST_INTERVAL_ITERATIONS=100
+      - HEALTH_CHECK_ENABLED=true
+      - HEALTH_CHECK_RETRIES=10
+      - HEALTH_CHECK_DELAY_SECONDS=2.0
+      - HEALTH_URL_TEMPLATE=http://{container}:8000/health
+      # Multi-container routing (extensible)
+      - CONTAINER_ROUTE_HTTP_500_SPIKE=api_service
+      - CONTAINER_ROUTE_HTTP_503_SPIKE=api_service
+      - CONTAINER_ROUTE_HTTP_504_SPIKE=api_service
+      - CONTAINER_ROUTE_AI_ANOMALY_DETECTED=api_service
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./models:/models
+      - ./remediation_engine:/app/remediation_engine
+      - ./requirements.txt:/app/requirements.txt
+      - ./logs:/app/logs
+    ports:
+      - "5001:5001"
+    depends_on:
+      - api_service
+      - prometheus
+    networks:
+      - selfheal_net
+
+  # ── Chaos Engine (Professional Fault Injection) ────────────────────
+  # Injects faults at infrastructure level — SIGKILL, Docker resource
+  # constraints, network disconnects, Toxiproxy network faults.
+  # The api_service code is completely unmodified during chaos tests.
+  chaos_engine:
+    build:
+      context: ./chaos_engine
+    container_name: chaos_engine
+    environment:
+      - DOCKER_SOCKET_URL=unix:///var/run/docker.sock
+      - TOXIPROXY_URL=http://toxiproxy:8474
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs:/app/logs
+      - ./chaos_engine/scenarios:/app/scenarios
+    ports:
+      - "5002:5002"
+    depends_on:
+      - api_service
+    networks:
+      - selfheal_net
+    restart: unless-stopped
+
+  # ── Toxiproxy (Real Network Fault Injection) ────────────────────────
+  # Sits as a transparent proxy in front of api_service.
+  # Chaos Engine configures it via REST to inject real network faults:
+  #   - Latency / jitter     (simulate slow upstream dependency)
+  #   - Bandwidth limiting   (simulate network congestion)
+  #   - Connection resets    (simulate network partition)
+  #   - Timeouts             (simulate gateway timeouts / 504s)
+  toxiproxy:
+    image: ghcr.io/shopify/toxiproxy:latest
+    container_name: toxiproxy
+    ports:
+      - "8001:8001"    # proxied api_service traffic (test clients use this port)
+      - "8474:8474"    # toxiproxy control API
+    networks:
+      - selfheal_net
+    restart: unless-stopped
+
+  # ── Watchdog ─────────────────────────────────────────────────────────
+  # Monitors the remediation_engine (the healer) itself.
+  # If the remediation_engine crashes or stops responding, the watchdog
+  # restarts it and sends a Slack/webhook escalation alert.
+  # The watchdog's own health is exposed on :5003 for Docker healthchecks.
+  watchdog:
+    build:
+      context: ./watchdog
+    container_name: watchdog
+    environment:
+      - WATCHDOG_TARGET_CONTAINER=remediation_engine
+      - WATCHDOG_HEALTH_URL=http://remediation_engine:5001/health
+      - WATCHDOG_POLL_INTERVAL_SECONDS=15
+      - WATCHDOG_FAILURE_THRESHOLD=3
+      - WATCHDOG_RESTART_COOLDOWN_SECONDS=120
+      - DOCKER_SOCKET_URL=unix:///var/run/docker.sock
+      # Optional: set to your Slack webhook URL for escalation alerts
+      - WATCHDOG_ALERT_WEBHOOK_URL=${WATCHDOG_SLACK_WEBHOOK:-}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs:/app/logs
+    ports:
+      - "5003:5003"
+    depends_on:
+      - remediation_engine
+    networks:
+      - selfheal_net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5003/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  selfheal_net:
+    driver: bridge

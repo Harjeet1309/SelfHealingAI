@@ -1,0 +1,28 @@
+# CPU Overload — 503 Service Unavailable (Overload Classification)
+# Simulates: real CPU saturation, traffic surge, resource exhaustion
+# Method: Update container CPU quota to 0.1 cores (very low limit)
+#         This is a REAL Docker resource constraint — not a code flag.
+# Expected: AI reads real CPU stats as very high, suppresses restart correctly.
+
+name: cpu_overload_503
+description: >
+  Applies a real Docker CPU quota constraint on api_service (0.1 cores).
+  The container becomes genuinely CPU-throttled — any computation takes
+  10x longer. This produces real latency spikes and real error backpressure.
+  The AI should detect high CPU and classify as OVERLOAD, suppressing the restart.
+
+target_container: api_service
+method: resource_constraint     # uses docker update --cpus
+resource:
+  cpus: "0.1"                   # throttle to 10% of 1 core
+  restore_cpus: "2.0"           # restore after duration
+duration_seconds: 120
+auto_recovery: resource_restore
+expected_alert: HTTP_503_SPIKE
+expected_action: SUPPRESS_RESTART_FOR_SCALING
+severity: high
+tags:
+  - overload
+  - cpu
+  - resource_constraint
+  - 503

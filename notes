@@ -1,0 +1,23 @@
+🎮 How to conduct the 5-Scenario Demonstration:
+Scenario 1: Checkout Crash (500)
+Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/500_checkout"
+Verify: Refresh the site. It stays GREEN (Silent Phase).
+Trigger: Click "Place Order".
+Result: Site turns RED (500). AI detects it and restarts the app.
+Scenario 2: Deadlock / Frozen Cart (503 + Low CPU)
+Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/503_deadlock"
+Verify: Refresh the site. It stays GREEN.
+Trigger: Click "Add to Cart".
+Result: Site turns RED (503). AI sees Low CPU and restarts the app.
+Scenario 3: Flash Sale / Overload (503 + High CPU)
+Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/503_overload"
+Result: Site turns ORANGE (Degraded).
+AI Response: Decision Engine logs: "DIAGNOSIS: Resource Exhaustion. Restart suppressed." (Proving it won't crash the sale).
+Scenario 4: Bot Attack (429)
+Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/429_bot"
+Result: Site logs 429 errors.
+AI Response: Logs: "DIAGNOSIS: External Traffic Pressure. Logging only." (Proving it protects legitimate sessions).
+Scenario 5: Hanging Payment (504)
+Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/504_timeout"
+Trigger: Click "Pay Now".
+Result: Spinner appears, then RED (504). AI detects "Clogged Pipeline" and restarts to clear the threads.

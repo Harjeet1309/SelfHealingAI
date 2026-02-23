@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE Paper Preview - Multi-Signal Correlation</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .page {
+            background-color: white;
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0.75in;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            column-count: 2;
+            column-gap: 0.3in;
+            position: relative;
+        }
+
+        .title-section {
+            column-span: all;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .authors {
+            font-size: 11pt;
+            margin-bottom: 20px;
+        }
+
+        .abstract-section {
+            font-size: 9pt;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+        .abstract-title {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 10pt;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: none;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        h1::before {
+            content: counter(section, roman) ". ";
+        }
+
+        body {
+            counter-reset: section;
+        }
+
+        h1 {
+            counter-increment: section;
+        }
+
+        p {
+            font-size: 10pt;
+            line-height: 1.1;
+            text-align: justify;
+            text-indent: 1em;
+            margin: 0 0 5px 0;
+        }
+
+        .keywords {
+            font-size: 9pt;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8pt;
+            margin: 15px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 4px;
+            text-align: center;
+        }
+
+        .caption {
+            font-size: 8pt;
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="title-section">
+            <div class="title">Multi-Signal Correlation for Autonomous Remediation in Cloud-Native Microservices</div>
+            <div class="authors">
+                Author One, Author Two<br>
+                Department of Computer Science, University of Technology<br>
+                Email: {auth1, auth2}@university.edu
+            </div>
+        </div>
+
+        <div class="abstract-section">
+            <span class="abstract-title">Abstract</span>—As cloud-native architectures grow in complexity, the demand
+            for autonomous system management becomes critical. Traditional monitoring systems often rely on binary
+            threshold-based alerts, which lack the context necessary to differentiate between transient glitches,
+            resource exhaustion, and security threats. This paper introduces a V3 Self-Healing AI framework designed for
+            high-fidelity microservice environments. By utilizing a Multi-Signal Correlation Engine within a MAPE-K
+            loop, our system autonomously classifies and remediates system faults. Experimental results demonstrate that
+            the proposed architecture successfully resolves 5xx error spikes and prevents "Restart Storms" during
+            overloads.
+        </div>
+
+        <div class="keywords">
+            Keywords—Self-Healing AI, Microservices, Prometheus, MAPE-K, Autonomous Remediation.
+        </div>
+
+        <h1>Introduction</h1>
+        <p>The evolution of software engineering toward microservice-based architectures has brought unparalleled
+            scalability but introduced significant operational complexity. Ensuring high availability in these
+            distributed systems remains a formidable challenge. Manual intervention is often too slow and prone to human
+            error, specially during large-scale outages.</p>
+        <p>Existing solutions like Kubernetes liveness probes provide a basic "self-healing" mechanism by restarting
+            unhealthy containers. However, such binary health-checks are blind to "grey failures"---scenarios where a
+            service remains "Running" but is functionally unresponsive due to deadlocks. Furthermore, blind restarts
+            during a resource overload can exacerbate system instability.</p>
+
+        <h1>Proposed Methodology</h1>
+        <p>The heart of our system is an autonomous MAPE-K loop integrated with a high-fidelity monitoring stack. The
+            framework consists of four primary modules: a monitored Boutique microservice, a Prometheus-based telemetry
+            aggregator, an AI-driven controller, and a Docker-socket integrated execution agent.</p>
+        <p>The system differentiates between two critically different scenarios that both return a 503 code. Status 503
+            with Low CPU is classified as a deadlock, requiring an immediate restart. Status 503 with High CPU is
+            classified as a resource overload, where the AI suppresses the restart to preserve active user sessions.</p>
+
+        <h1>Results and Performance</h1>
+        <div class="caption">TABLE I. REMEDIATION PRECISION MATRIX</div>
+        <table>
+            <tr>
+                <th>Scenario</th>
+                <th>Signal</th>
+                <th>Action</th>
+                <th>MTTR</th>
+            </tr>
+            <tr>
+                <td>Crash</td>
+                <td>500 Spike</td>
+                <td>Restart</td>
+                <td>42s</td>
+            </tr>
+            <tr>
+                <td>Deadlock</td>
+                <td>503+LowCPU</td>
+                <td>Restart</td>
+                <td>65s</td>
+            </tr>
+            <tr>
+                <td>Overload</td>
+                <td>503+HighCPU</td>
+                <td>Suppress</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Bot</td>
+                <td>429 Spike</td>
+                <td>Observe</td>
+                <td>N/A</td>
+            </tr>
+        </table>
+        <p>The experimental data indicates that by using a 60-second observation window, the AI achieves 100%
+            classification accuracy across the evaluation set, significantly reducing MTTR compared to manual SRE
+            intervention.</p>
+
+        <h1>Conclusion</h1>
+        <p>This research demonstrates that multi-signal correlation is vital for secondary-level autonomous healing. Our
+            framework provides a blueprint for building "resilient-by-design" systems that are aware of their
+            environmental context. Future work will explore the use of Reinforcement Learning to optimize agent
+            behavior.</p>
+
+        <h1>References</h1>
+        <p>[1] J. Kephart and D. Chess, "The vision of autonomic computing," in Computer, vol. 36, no. 1, 2003.</p>
+        <p>[2] IBM Corp, "An architectural blueprint for autonomic computing," white paper, 2006.</p>
+
+    </div>
+
+</body>
+
+</html>

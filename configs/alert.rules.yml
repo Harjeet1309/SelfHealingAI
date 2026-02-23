@@ -1,0 +1,48 @@
+groups:
+  - name: shopping_service_alerts
+    rules:
+
+      - alert: APIServiceDown
+        expr: up{job="api_service"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Shopping API is down"
+          description: "Prometheus cannot reach the Shopping service."
+
+      - alert: CheckoutFailures
+        expr: |
+          (
+            sum(rate(http_requests_total{endpoint="/checkout", status=~"5.."}[1m]))
+            /
+            sum(rate(http_requests_total{endpoint="/checkout"}[1m]))
+          ) > 0.05
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High checkout failure rate"
+          description: "Checkout error rate exceeded 5%."
+
+      - alert: ServiceOverloaded
+        expr: sum(rate(http_requests_total{status="503"}[2m])) > 0.5
+        for: 0s
+        labels:
+          severity: warning
+        annotations:
+          summary: "503 Service Unavailable spike"
+          description: "Detected a spike in 503 responses across the API."
+
+      - alert: HighLatency
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum(rate(http_request_duration_seconds_bucket[2m])) by (le)
+          ) > 2
+        for: 20s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High user latency"
+          description: "95th percentile latency exceeded 2 seconds."

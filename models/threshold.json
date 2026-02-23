@@ -1,0 +1,13 @@
+{
+  "threshold": 0.06973566666245416,
+  "method": "val_mse_p99.0",
+  "mean_val_mse": 0.006561420473821625,
+  "std_val_mse": 0.015788005302178717,
+  "p95_val_mse": 0.01833196375519032,
+  "p99_val_mse": 0.06973566666245416,
+  "best_epoch": 39,
+  "best_val_loss": 0.006535034711388024,
+  "total_samples": 17375,
+  "train_samples": 13900,
+  "val_samples": 3475
+}

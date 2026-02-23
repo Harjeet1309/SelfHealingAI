@@ -1,0 +1,25 @@
+# Network Partition — Container Isolation
+# Simulates: network split, service mesh failure, DNS failure
+# Method: Disconnect api_service from Docker network temporarily.
+#         The container still runs but is unreachable — Prometheus sees it down.
+
+name: network_partition
+description: >
+  Disconnects api_service from the selfheal_net Docker network.
+  The container is still running but completely unreachable.
+  Prometheus fires APIServiceDown alert.
+  The remediation engine must reconnect the service or trigger recovery.
+
+target_container: api_service
+method: network_disconnect
+network: selfheal_net
+duration_seconds: 45
+auto_recovery: network_reconnect
+expected_alert: HTTP_500_SPIKE
+expected_action: RESTART_SUCCESS_VERIFIED
+severity: critical
+tags:
+  - network
+  - partition
+  - isolation
+  - critical

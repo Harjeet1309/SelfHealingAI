@@ -1,0 +1,28 @@
+# Memory Pressure — 503 Deadlock / OOM
+# Simulates: memory leak reaching limits, OOM killer triggering
+# Method: Update container memory limit to a very low value
+#         Combined with memory_reservation to force real pressure.
+
+name: memory_pressure_oom
+description: >
+  Applies a real Docker memory limit of 80MB to api_service.
+  The container begins experiencing real memory pressure — GC thrashes,
+  latency spikes, and eventually requests fail as memory is exhausted.
+  The AI should detect the behavioral anomaly via LSTM (latency rise
+  correlated with memory_mb increase) and trigger a restart.
+
+target_container: api_service
+method: resource_constraint
+resource:
+  memory: "80m"                 # force real memory pressure
+  restore_memory: "512m"        # restore after scenario
+duration_seconds: 90
+auto_recovery: resource_restore
+expected_alert: AI_ANOMALY_DETECTED
+expected_action: RESTART_SUCCESS_VERIFIED
+severity: high
+tags:
+  - memory
+  - oom
+  - resource_constraint
+  - lstm_detection

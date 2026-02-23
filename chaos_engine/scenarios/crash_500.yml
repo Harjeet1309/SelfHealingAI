@@ -1,0 +1,24 @@
+# Application Crash — 500 Internal Server Error
+# Simulates: unhandled exception, OOM kill, process crash
+# Method: SIGKILL the container process → Docker auto-restarts it
+# This is a REAL crash — no application code involved.
+
+name: application_crash_500
+description: >
+  Kills the api_service container process with SIGKILL.
+  Simulates a real application crash or OOM kill.
+  Docker restarts the container automatically.
+  The self-healing engine should detect the 500 spike and verify recovery.
+
+target_container: api_service
+method: container_kill         # sends SIGKILL to container PID 1
+signal: SIGKILL
+duration_seconds: 0            # crash is instantaneous — no duration
+auto_recovery: docker_restart  # Docker restarts automatically
+expected_alert: HTTP_500_SPIKE
+expected_action: RESTART_SUCCESS_VERIFIED
+severity: critical
+tags:
+  - crash
+  - process
+  - 500
