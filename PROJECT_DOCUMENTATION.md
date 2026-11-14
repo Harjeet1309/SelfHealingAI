@@ -44,7 +44,7 @@ The Self-Healing AI Agent is an autonomous infrastructure monitoring and remedia
 | AI-Based Detection | Use a trained LSTM model to identify behavioral anomalies beyond known error signatures |
 | Rule-Based Classification | Deterministically detect well-known fault types such as crashes, deadlocks, and timeouts |
 | Context-Aware Remediation | Use real-time CPU telemetry to distinguish overload from deadlock before taking action |
-| Observable Dashboard | Display live anomaly charts, action logs, and healing metrics on the AI Insights page |
+| Observable Dashboard | Display live anomaly charts, action logs, and healing metrics on the Dashboard page |
 | Zero-Touch Recovery | After a restart, automatically clear faults and update the dashboard with no human input |
 
 ---
@@ -278,7 +278,7 @@ All pages are server-side rendered HTML using Python f-strings. The navigation b
 | GET /cart | YOUR BAG | Cart review page with checkout button |
 | GET /checkout-page | REVIEW | Order summary with total and confirm button |
 | GET /payment-page | NEURAL GATEWAY | Payment authorization screen |
-| GET /performance | AI INSIGHTS | Live AI dashboard with charts, stats, and action log |
+| GET /dashboard | Dashboard | Live AI dashboard with charts, stats, and action log |
 | GET /metrics | Raw Prometheus | Prometheus scrape endpoint — not a user-facing page |
 
 #### UI Status Badge States
@@ -734,7 +734,7 @@ The LSTM layer detects behavioral drift and novel anomalies that do not produce 
 
 ## 13. Dashboard and Performance Tracking
 
-### AI Insights Page (/performance)
+### Dashboard Page (/dashboard)
 
 The dashboard page is served by the FastAPI main.py and auto-refreshes data every 3 seconds via JavaScript fetch calls.
 
@@ -810,7 +810,7 @@ Dashboard statistics are written to logs/dashboard_stats.json after every /ai/re
 | Service | URL |
 | --- | --- |
 | Boutique Home | http://localhost:8000 |
-| AI Insights Dashboard | http://localhost:8000/performance |
+| Dashboard Dashboard | http://localhost:8000/dashboard |
 | Raw Prometheus Metrics | http://localhost:8000/metrics |
 | Prometheus Web UI | http://localhost:9090 |
 | Alertmanager Web UI | http://localhost:9093 |
@@ -1003,7 +1003,7 @@ Test faults are automatically cleared via the reset API after each successful re
 
 ### Decision 5 — Persistent Dashboard Stats
 
-Writing stats to a JSON file on a shared Docker volume ensures the AI Insights dashboard retains historical remediation counts across container restarts. This is essential because the api_service container itself is what gets restarted during remediation. Without a shared persistent store, every heal event would wipe the dashboard history.
+Writing stats to a JSON file on a shared Docker volume ensures the Dashboard dashboard retains historical remediation counts across container restarts. This is essential because the api_service container itself is what gets restarted during remediation. Without a shared persistent store, every heal event would wipe the dashboard history.
 
 ### Decision 6 — Dynamic Anomaly Threshold
 

@@ -1,0 +1,611 @@
+Self Healing AI System for Automated API Endpoint 
+Monitoring and Remediation  
+1Harjeet Gudde, Student, Department 
+of Computer Science and Engineering - 
+Artificial Intelligence and Machine 
+Learning,  
+Sphoorthy Engineering College,  
+guddeharjeet@gmail.com  
+ 2 T. Sai Nikhil, Student,   
+Department of Computer Science and 
+Engineering - Artificial Intelligence and  
+Machine Learning, Sphoorthy  
+Engineering College,  
+nikhiltelukuntla@gmail.com  3W. M. Venkata Narasimha , Student, 
+Department of Computer Science and 
+Engineering - Artificial  Intelligence  and 
+Machine Learning,  
+        Sphoorthy  Engineering  College, 
+wmvenkatanarasimha9893@gmail.co
+m 
+ 
+ 
+4Ayazuddin , Assistant 
+Professor , Department of Computer 
+Science and Engineering - Artificial 
+Intelligence and Machine Learning,  
+Sphoorthy  Engineering College,  
+ayazuddin1227@gmail.com  
+      
+ 
+ 
+  
+ 
+Abstract —Modern micro service applications are 
+expected to run continuously, yet relying on manual 
+intervention during failures often slows down recovery and 
+increases operational effort. To address this issue, this 
+study proposes a self -healing AI framework that 
+continuously monitors API endpoints and automatically 
+detects and resolves production faults. The system 
+combines a rule -based layer for quickly identifying 
+common errors with a deep learning model based on LSTM 
+and Multi -Head Self -Attention to capture more complex 
+and gradual performance irregularities. Trained on 17,375 
+labelled time -series samples covering multiple fault 
+scenarios, the model demonstrated strong validation 
+performance using a statistically defined anomaly 
+threshold. To adapt to changing runtime conditions, the 
+framework incorporates online learning and dynamic 
+threshold adjustment. When abnormal behaviour is 
+detected, a decision engine analyzes real -time system 
+metrics and initiates appropriate recovery actions, followed 
+by verification checks to ensure stability. Experimental 
+evaluation using containerized chaos testing confirmed fast 
+detection and recovery, demonstrating the framework’s 
+effectiveness for autonomous API management in modern 
+cloud environments.  
+Keywords — Self-Healing Systems, AI-Based Anomaly 
+Detection, LSTM with Multi -Head Self -Attention, Micro 
+services, Chaos Engineering, Autonomous Remediation.  
+I. INTRODUCTION  
+The shift toward micro service architectures has made 
+production systems far more distributed and complex 
+than traditional monolithic applications. With dozens or 
+even hundreds of independently deployed services 
+interacting in real time, manual fault detection and 
+recovery are no longer practical at scale. When issues are 
+not resolved quickly, the consequences extend beyond 
+temporary disruption, affecting revenue, service 
+reliability, and user confidence. Although operational 
+practices such as Site Reliability Engineering bring 
+structure to incident response, remediation still depends 
+largely on human judgment, which introduces 
+unavoidable delays during critical failures.  
+Conventional rule -based monitoring tools can detect 
+clear and well -understood problems by triggering alerts 
+when predefined thresholds are crossed. While effective 
+for sudden spikes or resource saturation events, these 
+systems are limited in their ability to recognize gradual 
+or multi -metric behavioral changes, such as slow 
+memory growth or progressive latency drift. Machine learning models offer a more adaptive alternative by 
+learning patterns of normal system behavior and 
+identifying deviations over time. In particular, LSTM -
+based sequence models enhanced with attention 
+mechanisms are well suited for analyzing time -series 
+telemetry and capturing subtle temporal irregularities. 
+However, many existing approaches stop at anomaly 
+detection and rely on human operators to decide how to 
+respond, which reintroduce latency and limits scalability.  
+ 
+To overcome these limitations, this work proposes an 
+autonomous Self -Healing AI System that unifies 
+detection, contextual interpretation, and remediation 
+within a single closed -loop framework. The architecture 
+combines rapid rule -based detection for known fault 
+patterns with an LSTM model augmented by Multi -Head 
+Self-Attention to capture more complex anomalies. A 
+context -aware decision engine evaluates real -time 
+resource indicators, such as CPU utilization, to determine 
+the most appropriate corrective action and avoid 
+counterproductive responses. The system also 
+incorporates online learning and dynamic threshold 
+adjustment to remain effective as production conditions 
+evolve. Experimental validation using controlled 
+infrastructure -level chaos testing demonstrates reliable 
+detection, verified recovery, and low false -positive rates, 
+supporting the feasibility of autonomous remediation in 
+modern cloud -native environments.  
+II. RELATED WORK  
+F. Merah and Y. Benabdellah .,[1] work addresses the 
+challenge of identifying abnormal behavior in satellite 
+systems by focusing on real -time anomaly detection 
+within large volumes of telemetry data. Satellite 
+telemetry parameters provide continuous insight into 
+system health and performance, making timely detection 
+of irregular patterns essential for reliable operation. The 
+approach applies machine learning –based time series 
+analysis to compare predicted telemetry values with 
+actual observation s in order to identify anomalous 
+events. The methodology includes structured 
+preprocessing steps such as handling missing data, 
+normalization, and scaling, followed by the use of 
+predictive models including autoregressive methods, 
+deep learning –based sequence models, and probabilistic 
+forecasting techniques. Experimental evaluation 
+demonstrates that the forecasting -based model delivers 
+consistent and accurate anomaly detection with low 
+computational overhead, outperforming other considered 
+approaches. Overall, the study highlights the 
+effectiveness of time series –driven machine learning 
+frameworks for efficient and reliable anomaly detection 
+in satellite telemetry systems.  
+S. Yu, H. Wu, X. Niu and C. Nie .,[2] study provides a 
+detailed examination of fault injection testing as a 
+resilience assessment approach for microservice -based 
+systems. The objective of the work is to analyze how 
+fault injection techniques are used to evaluate the 
+correctness and robustness of fault -tolerance 
+mechanisms, given the lack of a consolidated overview 
+of existing practices. Through systematic observation of 
+current methods, the study outlines a generalized fault 
+injection testing framework and identifies key 
+components that represent important design 
+considerations. It further reviews how existing 
+techniques address the challenges associated with these 
+components and discusses observed limitations. The 
+study concludes by highlighting potential directions for 
+future research aimed at improving fault injection testing 
+strategies for reliable microservice systems.  
+B. Xu, T. Ding and L. Guo .,[3] study addresses the 
+limitations of conventional Signal -to-Noise Ratio (SNR) 
+estimation techniques by proposing a deep learning –
+based architecture designed to improve accuracy and 
+adaptability across various modulation schemes. The 
+objective is to enhance sequential signal modeling by 
+incorporating a multi -head self -attention mechanism 
+within a spatial bidirectional LSTM framework, allowing 
+the model to better capture temporal dependencies and 
+contextual relationships. In addition, convolutional layers 
+are integrated to strengthen feature extraction and 
+improve representation of critical signal characteristics. 
+The resulting attention -based convolutional BiLSTM 
+architecture is evaluated using a simulated 
+communication signal dataset containing multiple SNR 
+levels and modulation types. Experimental findings 
+demonstrate improved estimation performance, 
+robustness, and broader modulation applicability 
+compared to baseline approaches, highlighting the 
+effectiveness of the proposed design for advanced SNR 
+estimation tasks.  
+H. Wu, Z. Yu, B. Quan, Y. Zhang, Y. He and J. Li .,[4] 
+study focuses on improving the reliability and resilience 
+of distribution networks by addressing the limitations of 
+conventional self -healing control methods, particularly 
+slow response and partial recovery. The proposed 
+approach adopts a multi -agent system –based control 
+strategy in which individual agents are designed with 
+sensing, decision -making, and execution capabilities to 
+enable coordinated fault management. By formulating 
+collaborative control rules and optimized recovery 
+objectives, the strategy supports adaptive network 
+reconfiguration following fault occurrences. The 
+approach is validated through simulation under multiple 
+fault scenarios using a standard test network and an 
+integrated simulation environment. Performance 
+evaluation demonstrates faster fault detection, improved 
+recovery efficiency, and stronger communication 
+robustness when compared with traditional self -healing 
+control techniques, confirming the effectiveness of the 
+proposed strategy.  A. Chopra  et al.,[5] study has the objective of improving 
+predictive maintenance in Industrial Internet of Things 
+environments by enabling real -time detection of 
+abnormal system behavior. The proposed framework 
+applies a combination of machine learning and deep 
+learning models to continuously analyze sensor data 
+streams and identify potential faults. By leveraging both 
+feature extraction and temporal learning capabilities, the 
+approach supports timely and reliable anomaly 
+identification. Experimental evaluation demonstrates 
+high detection accuracy, strong classification 
+performance, low false alarm rates, and reduced 
+detection latency. The findings indicate that AI -based 
+anomaly detection effectively enhances real -time 
+monitoring and maintenance efficiency in industrial 
+systems.  
+III. PROPOSED SYSTEM  
+The proposed system follows a sidecar monitoring 
+architecture in which all observability, inference, and 
+remediation logic operate independently of the target 
+API service. The monitored FastAPI application runs 
+without modification, unaware of monitoring or fault 
+injection activities. This separation ensures portability, 
+transparency, and non -intrusive deployment across any 
+HTTP -based micro service. The framework is deployed 
+as a Docker Compose stack consisting of multiple 
+containerized components, including the API service, 
+Prometheus for metric collection, an AI -based 
+remediation engine, a chaos controller for infrastructure -
+level fault injection, Toxiproxy for network fault 
+simulation, a watchdog for self -monitoring, and Alert 
+manager for rule -based alert forwarding.  
+The system collects five key telemetry features at five -
+second intervals: request rate, error rate, 95th percentile 
+latency, memory usage, and active connections. While 
+the first three represent traditional reliability indicators, 
+memory and connection metrics enable early detection of 
+issues such as memory leaks and deadlocks that may not 
+immediately affect throughput. Metrics are normalized  
+using a scalar  fitted during training, and a sliding 
+window of 30 time steps  (150 seconds) is constructed to 
+form supervised learning sequences for forecasting -based 
+anomaly detection.  
+Detection operates through a dual -layer mechanism. A 
+rule-based layer rapidly identifies well -known fault 
+signatures, such as HTTP 500 or 503 spikes, providing 
+low-latency responses for discrete failures. In parallel, an 
+LSTM model enhanced with Multi -Head Self -Attention 
+learns normal behavioral  patterns and flags deviations 
+using mean squared error between predicted and 
+observed values. A coordination mechanism prevents 
+duplicate remediation by prioritizing  rule-based triggers 
+when active.  
+When an alert is generated, a context -aware decision 
+engine evaluates real -time CPU utilization  before 
+selecting a corrective action. This prevents inappropriate 
+restarts under high -load conditions, distinguishing 
+between resource saturation and deadlock scenarios. 
+Remediation actions are followed by active health 
+verification to confirm successful recovery. The system 
+supports multi -container routing, enabling protection of 
+multiple services without code changes.  To ensure 
+realistic evaluation, faults are injected exclusively at the 
+infrastructure level using Docker resource constraints, 
+process signals, network disconnections, container 
+pausing, and Toxiproxy -induced latency. Scenarios are 
+declaratively defined and executed through a chaos 
+controller API, avoiding application -level fault 
+simulation bias.  
+To maintain reliability in dynamic environments, the 
+system incorporates online fine -tuning on verified clean 
+runtime data and dynamically recalibrates anomaly 
+thresholds using live metric distributions. Additional 
+safeguards include a watchdog process for engine 
+recovery, log rotation for disk stability, cool down  
+mechanisms to prevent restart oscillation, and 
+corroboration filters to reduce false positives during low -
+traffic periods.  
+ 
+Figure 1 System Design  
+IV. METHODOLOGY  
+A.  Research Design Framework  
+This work adopts a design science research methodology 
+in which the central artifact —the Self -Healing AI 
+Agent —is iteratively designed, implemented, and 
+evaluated as an autonomous control system for cloud -
+native micro services. The objective is not merely 
+anomaly detection but the integration of monitoring, 
+contextual reasoning, and automated remediation within 
+unified closed -loop architecture. The methodological 
+flow progresses through four phases: (i) analysis of 
+micro service failure patterns and limitations of 
+threshold -based monitoring, (ii) architectural design of a 
+dual-layer detection and decision pipeline, (iii) 
+implementation of containerized monitoring, inference, 
+and remediation modules, and (iv) empirical validation 
+through controlled infrastructure -level chaos 
+experiments. The system is therefore evaluated 
+operationally rather than solely through offline model accuracy metrics, aligning evaluation with real -world 
+reliability requirements.  
+B.  System Instrumentation and Data Acquisition  
+The monitoring foundation of the system is built upon 
+Golden Signal observability principles. The target 
+FastAPI service is instrumented using middleware that 
+records request count, error count, request latency 
+distribution, and active request concurrency. These 
+metrics are exported through a Prometheus -compatible 
+/metrics endpoint and scraped at five -second intervals 
+using a pull -based model. This separation ensures that 
+the application remains unaware of the monitoring 
+process, preserving architectural purity and deployment 
+portability.  
+The remediation engine retrieves telemetry data directly 
+from the Prometheus HTTP API. For each inference 
+cycle, a rolling 20 -minute time -series window is fetched 
+at five -second resolution. Missing values during cold 
+starts are zero -filled to ensure numerical stability. This 
+acquisition strategy ensures temporal continuity while 
+avoiding dependency on application -level 
+instrumentation beyond standard metrics exposure.  
+C.  Feature Engineering and Sequence Construction  
+Raw time -series telemetry is transformed into supervised 
+learning sequences using a sliding -window methodology. 
+Each input instance consists of 30 consecutive time steps 
+representing 150 seconds of historical behavior. The 
+target output corresponds to the subsequent time step, 
+framing the learning problem as next -step forecasting 
+rather than classification. Formally, each sample is 
+represented as:  
+ 
+                  
+where the three features correspond to request rate, error 
+rate, and 95th percentile latency.  
+Prior to sequence construction, features are normalized 
+using a StandardScaler fitted during training to enforce 
+zero mean and unit variance. The fitted scaler is persisted 
+and reused during inference to maintain distributional 
+alignment between training and runtime data. This 
+preprocessing pipeline ensures stable gradient behavior 
+during model training and consistent anomaly scoring 
+during deployment.  
+D.  Dual -Layer Detection Architecture  
+Detection is implemented through a hybrid architecture 
+combining deterministic statistical rules with deep 
+temporal modeling. The first layer consists of a rule -
+based spike detector that executes PromQL queries over 
+a 60-second look back window to compute peak HTTP 
+error rates. If predefined thresholds are exceeded —for 
+example sustained 500 or 503 error rates —the system 
+immediately generates a fault alert. This layer provides 
+rapid, interpretable detection for well -understood failure 
+signatures and operates with a precedence window that 
+temporarily suppresses AI -based detection to prevent 
+duplicate remediation.  
+The second layer employs a two -layer Long Short -Term 
+Memory (LSTM) network with a hidden size of 64 units 
+for temporal forecasting. Rather than performing fault 
+classification, the model predicts the next telemetry 
+vector from the preceding sequence window. Anomaly 
+score is computed using mean squared error between 
+predicted and observed values:    
+ 
+An anomaly is defined as a statistically significant 
+deviation from the learned operational manifold. This 
+forecasting -based approach enables detection of 
+previously unseen fault patterns and gradual behavioral 
+drift that do not trigger explicit HTTP error spikes.  
+E.  Multi -Stage Anomaly Decision Logic  
+Raw anomaly scores are processed through a guarded 
+decision pipeline to minimize false positives. First, an 
+effective threshold is computed as the maximum of a 
+static training -derived bound and a dynamic runtime 
+percentile computed from recent clean observations:  
+ 
+Where  Tstatic is derived from validation MSE statistics, α 
+is a configurable sensitivity multiplier, and T dynamic  
+corresponds to the 98th percentile of a rolling baseline of 
+recent non -anomalous scores.  
+Second, a corroboration filter ensures that anomaly 
+escalation occurs  only when meaningful traffic is present 
+and measurable degradation signals exist. This prevents 
+false alarms during low -traffic or idle periods when 
+statistical variance may increase without operational 
+impact. Third, a configurable confirmation counter 
+requires consecutive anomaly detections before 
+escalation, adding resistance to transient metric noise.  
+F.  Context -Aware Remediation Strategy  
+Upon confirmation of a fault alert, the Decision Engine 
+performs contextual classification before executing 
+infrastructure actions. A critical ambiguity exists for 
+certain HTTP status codes, particularly 503 errors, which 
+may arise from either resource saturation or application 
+deadlock. These conditions require opposite remediation 
+strategies. To resolve this ambiguity, the system queries 
+real-time CPU utilization metrics from the Docker 
+daemon and computes container CPU percentage using 
+delta -based usage calculations. If CPU usage exceeds a 
+defined threshold (default 70%), the condition is 
+classified as overload and restart is suppressed to prevent 
+capacity loss. If CPU remains below the threshold, the 
+condition is classified as deadlock and container restart is 
+initiated.  
+Remediation is executed via Docker SDK calls to restart 
+the target container. A cool down guard enforces a 
+minimum interval between restarts to prevent oscillatory 
+behavior. Following restart, the system enters a health 
+verification loop, polling the service’s /health endpoint to 
+confirm successful recovery before logging the 
+remediation as verified.  
+G.  Chaos Engineering Evaluation Method   
+To validate robustness under realistic conditions, faults 
+are injected exclusively at the infrastructure layer using 
+Docker control primitives and network proxies. Fault 
+types include process termination, CPU throttling, 
+memory constraints, network disconnections, and latency 
+injection via Toxiproxy. This approach ensures that 
+anomalies arise from genuine infrastructure perturbations 
+rather than artificial application logic branches. For each 
+scenario, detection time, recovery time, false positive 
+rate, and overload suppression accuracy are measured. 
+Each experiment is repeated multiple times to compute 
+mean and variance, ensuring reproducibility and 
+statistical validity.  
+H.  Reliability and Adaptive Safeguards  
+To enhance operational stability, the system incorporates 
+several protective mechanisms. A warm -up silence 
+period suppresses detection during initial metric 
+accumulation. Rule precedence prevents dual -layer 
+conflicts. A rolling dynamic threshold adapts to evolving 
+traffic patterns. Cool down enforcement prevents restart 
+storms. Log rotation safeguards disk resources. Persistent 
+dashboard statistics ensure continuity across restarts. 
+Additionally, a watchdog process monitors the 
+remediation engine itself and triggers restart if the agent 
+fails, ensuring meta -level resilience.  
+V. EXPERIMENTAL SETUP AND RESULT  
+A. Experimental  Environment  
+All experiments were conducted on a Windows 11 
+workstation equipped with an Intel Core i7 processor (8 
+cores) and 16 GB RAM. The complete system was 
+deployed using Docker Compose, with the API service, 
+Prometheus, Alertmanager, remediation engine, and 
+chaos controller running as isolated containers within a 
+shared Docker network. Metrics were scraped at five -
+second intervals throughout all experiments. Model 
+training and inference were executed on CPU using 
+PyTorch 2.x under Python 3.11. Fault scenarios were 
+injected at the infrastructure level using container control 
+operations and network perturbations to ensure realistic 
+runtime behavior.  
+B. Model Training Outcomes  
+The forecasting model was trained on 17,375 time -series 
+sequences with a window length of 30 timesteps (150 
+seconds). Validation mean squared error decreased from 
+0.104 at the first epoch to a best value of 0.006535, 
+representing a substantial reduction in forecasting error. 
+Training converged within approximately 40 epochs, and 
+early stopping prevented overfitting. The anomaly 
+detection threshold was set using the 99th percentile of 
+validation errors, ensuring that normal operational 
+behavior remained below the decision boundary while 
+preserving sensitivity to abnormal deviations.  
+C. Detection Performance  
+Detection latency was evaluated across seven fault 
+scenarios, each repeated five times. Discrete faults —
+including application crashes (500), deadlocks (503), 
+timeouts (504), overload conditions, and bot traffic 
+spikes (429) —were detected within 15 –25 seconds on 
+average. This latency reflects the metric scrape 
+resolution and alert confirmation window.  
+Gradual degradation and memory leak scenarios were 
+detected by the AI layer within 95 –112 seconds. 
+Although slower than rule -based spike detection, these 
+faults were identified significantly earlier than their 
+natural failure point under uncontrolled conditions. 
+Importantly, these gradual scenarios did not exceed static 
+threshold limits during early stages, meaning they would 
+not have been detected without the AI -based temporal 
+model.  
+D Recovery Performance  
+Mean Time to Recovery (MTTR) was measured from 
+fault injection to confirmed service restoration. For 
+abrupt faults, recovery occurred within 31 –43 seconds on 
+average. Behavioral anomaly scenarios exhibited longer 
+MTTR values (118 –137 seconds), driven primarily by 
+increased detection latency rather than restart execution 
+time. Restart operations completed successfully across 
+all runs. In two instances involving resource -intensive 
+faults, verification exceeded the predefined polling 
+window, though subsequent checks confirmed recovery 
+shortly thereafter. Overall recovery verification within 
+the defined window reached 90%.  
+E. Context Classification and Stability  
+Overload classification accuracy was evaluated across 
+ten induced high -CPU scenarios. The system correctly 
+suppressed restart actions in all overload cases, achieving 
+100% classification accuracy. No incorrect restarts 
+occurred under high -load conditions, and no false 
+suppression occurred during normal operation.  
+A two -hour continuous run under normal traffic 
+conditions produced zero false remediations in the full 
+system configuration. When AI -based detection operated 
+without corroboration safeguards, anomaly alerts 
+increased; however, with full decision logic enabled, no 
+spurious recovery actions were triggered. This 
+demonstrates that contextual filtering is essential for 
+maintaining operational stability.  
+F. Overall Performance Summary  
+Across all evaluated scenarios, the system achieved rapid 
+detection for discrete faults, early identification of 
+gradual anomalies, reliable automated recovery, 100% 
+overload suppression accuracy, and zero false 
+remediations during sustained normal operation. Two of 
+the evaluated fault categories were undetectable using 
+rule-based monitoring alone, highlighting the necessity 
+of integrating temporal anomaly detection within the 
+remediation framework.  
+VI. CONCLUSION AND FUTURE WORK  
+This paper presented a self -healing AI system for 
+automated monitoring and remediation of microservice -
+based APIs. The framework combines fast rule -based 
+spike detection with a temporal forecasting model to 
+identify both abrupt service failures and gradual 
+behavioral drift that traditional threshold monitoring 
+often misses. A context -aware decision engine evaluates 
+real-time resource utilization before executing recovery 
+actions, allowing the system to distinguish between overload conditions and genuine application faults. 
+Experimental evaluation demonstrated rapid detection of 
+discrete failures, early identification of progressive 
+anomalies, reliable automated recovery, and zero false 
+remediations during sustained normal operation. The use 
+of infrastructure -level fault injection further strengthened 
+the validity of the results by ensuring realistic evaluation 
+conditions.  
+Overall, the findings indicate that integrating multi -layer 
+anomaly detection with contextual decision logic 
+provides a practical foundation for autonomous service 
+recovery in containerized environments. By reducing 
+recovery time while preserving operational stability, the 
+system moves toward more adaptive and resilient cloud -
+native operations. Future work will extend the 
+framework to distributed multi -service environments, 
+explore reinforcement learning for adaptive remediation 
+policies, integrate with Kubernetes for production -scale 
+deployment, and evaluate performance on real -world 
+production trace datasets to further validate scalability 
+and generalisability.  
+                                      REFERENCES  
+[1] F. Merah and Y. Benabdellah, "Real -Time Anomaly 
+Detection in Satellite Communication Systems Using 
+Machine Learning Techniques,"  2025 7th International 
+Conference on Pattern Analysis and Intelligent Systems 
+(PAIS) , Laghouat, Algeria, 2025, pp. 1 -6, doi: 
+10.1109/PAIS66004.2025.11126519.  
+[2]  S. Yu, H. Wu, X. Niu and C. Nie, "A Systematic 
+Literature Review on Fault Injection Testing of 
+Microservice Systems," in  IEEE Transactions on 
+Services Computing , vol. 18, no. 6, pp. 4364 -4385, Nov. -
+Dec. 2025, doi: 10.1109/TSC.2025.3621564.  
+[3]  B. Xu, T. Ding and L. Guo, "AC -BiLSTM: A Spatial 
+Bidirectional LSTM With Multi -Head Self -Attention for 
+SNR Estimation,"  2024 4th International Conference on 
+Computer Systems (ICCS) , Hangzhou, China, 2024, pp. 
+34-38, doi: 10.1109/ICCS62594.2024.10795825.  
+[4]  H. Wu, Z. Yu, B. Quan, Y. Zhang, Y. He and J. Li, 
+"Research on self -healing control strategy of distribution 
+network based on multi -agent system,"  2025 IEEE 3rd 
+International Conference on Sensors, Electronics and 
+Computer Engineering (ICSECE) , Jinzhou, China, 2025, 
+pp. 1660 -1664, doi: 
+10.1109/ICSECE65727.2025.11256887.  
+[5] A. Chopra  et al., "Real -Time Anomaly Detection in 
+Industrial IoT: AI -Based Predictive Maintenance,"  2025 
+12th International Conference on Computing for 
+Sustainable Global Development (INDIACom) , Delhi, 
+India, 2025, pp. 1 -4, doi: 
+10.23919/INDIACom66777.2025.11115572.  
+[6]  M. A. Naqvi, S. Malik, M. Astekin and L. Moonen, 
+"On Evaluating Self -Adaptive and Self -Healing Systems 
+using Chaos Engineering,"  2022 IEEE International 
+Conference on Autonomic Computing and Self -
+Organizing Systems (ACSOS) , CA, USA, 2022, pp. 1 -10, 
+doi: 10.1109/ACSOS55765.2022.00018.  
+[7]  K. Priyanka, S. Priyadharshini, N. A. Vignesh, A. 
+Hameed, R. R. K and P. C, "Self -Healing Data Pipelines: 
+Reinforcement Learning for Real -Time Fault Detection 
+and Autonomous Recovery,"  2025 International 
+Conference on Metaverse and Current Trends in 
+Computing (ICMCTC) , Subang Jaya, Malaysia, 2025, 
+pp. 1 -4, doi: 10.1109/ICMCTC62214.2025.11196544.  
+[8]   A. Aniculaesei, J. Grieser, A. Rausch, K. Rehfeldt 
+and T. Warnecke, "Toward a Holistic Software Systems 
+Engineering Approach for Dependable Autonomous 
+Systems,"  2018 IEEE/ACM 1st International Workshop 
+on Software Engineering for AI in Autonomous Systems 
+(SEFAIAS) , Gothenburg, Sweden, 2018, pp. 23 -30. 
+[9] K. Sarda, "Leveraging Large Language Models for 
+Auto -remediation in Microservices Architecture,"  2023 
+IEEE International Conference on Autonomic 
+Computing and Self -Organizing Systems Companion 
+(ACSOS -C), Toronto, ON, Canada, 2023, pp. 16 -18, doi: 
+10.1109/ACSOS -C58168.2023.00025.  
+[10] N. H. An, H. B. Minh, M. D. Lam, P. D. Phung and 
+C. B. Minh, "Multi -Head Time Series Prediction by 
+Decomposition and LSTM -Self-Attention -LSTM 
+Model,"  2023 International Conference on Advanced 
+Computing and Analytics (ACOMPA) , Da Nang City, 
+Vietnam, 2023, pp. 19 -25, doi: 
+10.1109/ACOMPA61072.2023.00013.  
+[11] M. Elsadig, A. Abdullah and B. B. Samir, "Immune 
+multi agent system for intrusion prevention and self 
+healing system implement a non -linear 
+classification,"  2010 International Symposium on 
+Information Technology , Kuala Lumpur, Malaysia, 2010, 
+pp. 1 -6, doi: 10.1109/ITSIM.2010.5561486.  
+[12] Y. Li, "Enhanced Network Traffic Monitoring and 
+Anomaly Detection System Utilizing Convolutional 
+Neural Networks,"  2025 6th International Conference on 
+Computer Engineering and Application (ICCEA) , 
+Hangzhou, China, 2025, pp. 1267 -1271, doi: 
+10.1109/ICCEA65460.2025.11103116.
+ 

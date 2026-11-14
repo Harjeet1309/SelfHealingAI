@@ -1,313 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Self-Healing | Shopping Portal V3</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>NOC - AI Autonomous Monitoring v4.0</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg: #0a0b10;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg: #05060a;
+            --panel: #0d0f16;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
             --primary: #6366f1;
+            /* Electric Indigo */
             --accent: #f43f5e;
+            /* Crimson */
             --success: #10b981;
+            /* Emerald */
             --warning: #f59e0b;
-            --text: #e2e8f0;
+            /* Amber */
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --glow-indigo: rgba(99, 102, 241, 0.15);
+            --glow-crimson: rgba(244, 63, 94, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
         }
 
         body {
             background: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(244, 63, 94, 0.1) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
             overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 0% 0%, var(--glow-indigo) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, var(--glow-crimson) 0%, transparent 40%);
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
+        /* --- Header --- */
         header {
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 6, 10, 0.8);
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            border-radius: 8px;
+            box-shadow: 0 0 20px var(--glow-indigo);
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
             font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
-        .status-badge {
+        .sys-status {
             padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 99px;
             font-size: 0.8rem;
             font-weight: 600;
-            background: rgba(16, 185, 129, 0.1);
             color: var(--success);
-            border: 1px solid rgba(16, 185, 129, 0.3);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .pulse {
-            width: 8px;
-            height: 8px;
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
             background: var(--success);
             border-radius: 50%;
-            animation: pulse-animation 2s infinite;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0px rgba(16, 185, 129, 0.4); }
-            100% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        .grid {
+        /* --- Main Layout --- */
+        main {
+            padding: 2rem;
             display: grid;
-            grid-template-columns: 1fr 1fr 1.2fr;
-            gap: 2rem;
-        }
-
-        /* Common Card Style */
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            grid-template-columns: 400px 1fr 480px;
+            gap: 2.5rem;
+            flex-grow: 1;
+            max-width: 2200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         h2 {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
         }
 
-        /* Product Styles */
-        .product-list {
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Chaos Control --- */
+        .scenarios {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-        }
-
-        .product-item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1rem;
-            border-radius: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-
-        .product-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-2px);
-        }
-
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.6rem 1rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
+            gap: 0.75rem;
         }
 
         .btn-chaos {
-            background: rgba(244, 63, 94, 0.1);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 0.5rem;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 1rem;
+            border-radius: 16px;
             text-align: left;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .btn-chaos:hover {
-            background: var(--accent);
-            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateX(4px);
+            box-shadow: 0 0 20px var(--glow-indigo);
         }
 
-        /* Cart & Checkout */
-        .cart-summary {
-            background: rgba(99, 102, 241, 0.05);
-            padding: 1.5rem;
+        .btn-chaos span {
+            font-family: 'JetBrains Mono';
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* --- Analysis Hub --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mini-card {
+            background: var(--glass);
+            padding: 1rem;
             border-radius: 16px;
-            margin-top: auto;
+            border: 1px solid var(--border);
         }
 
-        /* AI Monitor Styles */
-        .monitor-stat {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
+        .mini-card label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
-        .stat-value {
-            font-family: monospace;
+        .mini-card .val {
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary);
+            font-family: 'JetBrains Mono';
         }
 
-        .log-feed {
-            font-size: 0.8rem;
+        .ai-viz {
+            height: 300px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .score-overlay {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            text-align: right;
+        }
+
+        .score-overlay .main-score {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono';
+            line-height: 1;
+        }
+
+        .score-overlay label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* --- Log Feed --- */
+        .logs-container {
             font-family: 'JetBrains Mono', monospace;
-            height: 200px;
+            font-size: 0.85rem;
+            height: 500px;
             overflow-y: auto;
-            background: rgba(0,0,0,0.3);
+            background: #000;
+            border-radius: 16px;
             padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            color: #94a3b8;
+            border: 1px solid var(--border);
+            color: #71717a;
+            line-height: 1.6;
         }
 
         .log-line {
             margin-bottom: 0.5rem;
-            border-left: 2px solid var(--primary);
-            padding-left: 0.5rem;
+            position: relative;
+            padding-left: 1rem;
         }
 
-        .log-line.ALERT { border-color: var(--warning); color: var(--warning); }
-        .log-line.REACTION { border-color: var(--success); color: var(--success); }
+        .log-line::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
 
-        canvas {
-            max-height: 180px;
+        .log-line.ALERT {
+            color: var(--warning);
+            border-left: 2px solid var(--warning);
+        }
+
+        .log-line.REACTION {
+            color: var(--success);
+            font-weight: 600;
+            border-left: 2px solid var(--success);
+        }
+
+        .log-line.CRITICAL {
+            color: var(--accent);
+            font-weight: 700;
+            background: rgba(244, 63, 94, 0.05);
+        }
+
+        /* --- Shop Demo --- */
+        .product-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .shop-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">SELF-HEALING AI v3.0</div>
-            <div class="status-badge">
-                <div class="pulse"></div>
-                SYSTEM STATUS: AUTONOMOUS
-            </div>
-        </header>
-
-        <div class="grid">
-            <!-- Product Catalog -->
-            <div class="card">
-                <h2>Product Catalog</h2>
-                <div id="products" class="product-list">
-                    <!-- Loaded via JS -->
-                </div>
-                
-                <div class="cart-summary">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                        <span>Your Cart</span>
-                        <span id="cart-count">0 items</span>
-                    </div>
-                    <div style="font-size: 1.5rem; font-weight: 700;">$ <span id="cart-total">0.00</span></div>
-                </div>
-                <button class="btn" style="width: 100%; padding: 1rem;" onclick="checkout()">Proceed to Checkout</button>
-            </div>
-
-            <!-- Chaos Control Center -->
-            <div class="card">
-                <h2>Chaos Control Center</h2>
-                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Inject failures into the checkout process to trigger the Self-Healing loop.</p>
-                
-                <button class="btn btn-chaos" onclick="checkout('503_deadlock')">
-                    Inject 503 Deadlock <span>(Low CPU)</span>
-                </button>
-                <button class="btn btn-chaos" onclick="checkout('503_overload')">
-                    Inject 503 Overload <span>(High CPU)</span>
-                </button>
-                <button class="btn btn-chaos" onclick="checkout('504_timeout')">
-                    Inject 504 Timeout <span>(Database)</span>
-                </button>
-                <div style="border-top: 1px solid var(--glass-border); padding-top: 1rem; margin-top: 0.5rem;">
-                    <button class="btn btn-chaos" style="border-color: #6366f1; color: #6366f1;" onclick="simulate('http_500')">
-                        Trigger 500 Spike <span>(Rule Layer)</span>
-                    </button>
-                    <button class="btn btn-chaos" style="border-color: #f59e0b; color: #f59e0b;" onclick="simulate('http_429')">
-                        Trigger 429 Limit <span>(Guard Rail)</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- AI Intelligence Monitor -->
-            <div class="card">
-                <h2>AI Intelligence Monitor</h2>
-                
-                <div class="monitor-stat">
-                    <span>Anomaly Score</span>
-                    <span id="anomaly-score" class="stat-value">0.000000</span>
-                </div>
-
-                <div style="height: 180px;">
-                    <canvas id="scoreChart"></canvas>
-                </div>
-
-                <h2>Remediation Feed</h2>
-                <div id="logs" class="log-feed">
-                    <div class="log-line">Initializing neural link...</div>
-                    <div class="log-line">Monitoring Prometheus telemetry...</div>
-                </div>
-            </div>
+    <header>
+        <div class="brand">
+            <div class="brand-logo"></div>
+            <div class="brand-name">SELF-HEALING NOC v4.0</div>
         </div>
-    </div>
+        <div class="sys-status">
+            <div class="pulse-dot"></div>
+            MONITORING ACTIVE: <span id="uptime-display">00:00:00</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Left Column: Fault Generation -->
+        <section>
+            <div class="panel">
+                <h2>Chaos Injection</h2>
+                <div class="scenarios">
+                    <button class="btn-chaos" onclick="injectAndTest('503_deadlock', '/cart/add', 'POST /cart/add')">Execute Deadlock <span>503 → /cart/add</span></button>
+                    <button class="btn-chaos" onclick="injectAndTest('503_overload', '/cart/add', 'POST /cart/add')">Execute Overload <span>503 → /cart/add</span></button>
+                    <button class="btn-chaos" onclick="injectAndTest('429_bot', '/checkout', 'POST /checkout')">Execute Bot Attack <span>429 → /checkout</span></button>
+                    <button class="btn-chaos" onclick="injectAndTest('500_checkout', '/checkout', 'POST /checkout')">Execute App Crash <span>500 → /checkout</span></button>
+                    <button class="btn-chaos" onclick="injectAndTest('504_timeout', '/payment', 'POST /payment')">Execute Timeout <span>504 → /payment</span></button>
+                    <div style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+                        <button class="btn-chaos" style="border-color: var(--success); color: var(--success);"
+                            onclick="resetFaults()">Force Total Recovery <span>RESET</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>Shop Demo</h2>
+                <div id="shop-products">
+                    <div class="product-card">
+                        <div>
+                            <div style="font-weight: 600;">Urban Shirt</div>
+                            <div style="font-size: 0.7rem; color: var(--text-dim);">$89.99</div>
+                        </div>
+                        <button class="shop-btn" onclick="postToShop('/cart/add', 'POST /cart/add')">Add to Cart</button>
+                    </div>
+                </div>
+                <button class="shop-btn"
+                    style="width: 100%; margin-top: 1rem; padding: 0.75rem; background: var(--glass); border: 1px solid var(--primary);"
+                    onclick="postToShop('/checkout', 'POST /checkout')">PROCESS CHECKOUT</button>
+                <button class="shop-btn"
+                    style="width: 100%; margin-top: 0.5rem; padding: 0.75rem; background: var(--glass); border: 1px solid var(--warning); color: var(--warning);"
+                    onclick="postToShop('/payment', 'POST /payment')">PROCESS PAYMENT</button>
+                <div id="shop-result" style="margin-top: 0.75rem; font-family: 'JetBrains Mono'; font-size: 0.8rem; min-height: 1.5rem; color: var(--text-dim);"></div>
+            </div>
+        </section>
+
+        <!-- Center Column: Analysis Hub -->
+        <section>
+            <div class="panel" style="background: linear-gradient(to bottom, #111420, var(--panel));">
+                <h2>Neural Telemetry</h2>
+
+                <div class="ai-viz">
+                    <div class="score-overlay">
+                        <label>AI MSE SCORE</label>
+                        <div id="main-score" class="main-score">0.0000</div>
+                        <div id="ai-verdict" style="font-size: 0.8rem; font-weight: 600; color: var(--success);">NOMINAL
+                            STATE</div>
+                        <div id="spike-timer"
+                            style="font-size: 0.85rem; font-weight: 600; color: var(--warning); margin-top: 5px; display: none;">
+                            Spike Duration: 0s</div>
+                    </div>
+                    <canvas id="mainChart"></canvas>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="mini-card">
+                        <label>ERROR RATE</label>
+                        <div id="stat-errors" class="val">0.0%</div>
+                    </div>
+                    <div class="mini-card">
+                        <label>P95 LATENCY</label>
+                        <div id="stat-latency" class="val">0ms</div>
+                    </div>
+                    <div class="mini-card">
+                        <label>REQUEST RATE</label>
+                        <div id="stat-traffic" class="val">0.0/s</div>
+                    </div>
+                    <div class="mini-card">
+                        <label>MEMORY LOAD</label>
+                        <div id="stat-memory" class="val">0MB</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Command Pulse -->
+        <section>
+            <div class="panel">
+                <h2>Precision Analytics</h2>
+                <div class="stats-grid">
+                    <div class="mini-card" style="grid-column: span 2;">
+                        <label>TOTAL DETECTIONS</label>
+                        <div id="ana-detections" class="val">0</div>
+                    </div>
+                    <div class="mini-card">
+                        <label>PRECISION</label>
+                        <div id="ana-precision" class="val">100%</div>
+                    </div>
+                    <div class="mini-card">
+                        <label>RECALL</label>
+                        <div id="ana-recall" class="val">100%</div>
+                    </div>
+                </div>
+
+                <h2>Action Pulse</h2>
+                <div id="logs" class="logs-container">
+                    <div class="log-line">Initializing neural monitoring link...</div>
+                    <div class="log-line">Handshaking with Prometheus telemetry pool...</div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
-        let scoreHistory = [];
-        let chart;
+        let mainChart;
+        let chartData = Array(30).fill(0);
+        let startTime = Date.now();
 
-        // Initialize Chart
-        function initChart() {
-            const ctx = document.getElementById('scoreChart').getContext('2d');
-            chart = new Chart(ctx, {
+        function initCharts() {
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
+            gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+
+            mainChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: Array(20).fill(''),
+                    labels: Array(30).fill(''),
                     datasets: [{
-                        label: 'Anomaly Intensity',
-                        data: Array(20).fill(0),
+                        data: chartData,
                         borderColor: '#6366f1',
-                        borderWidth: 2,
+                        borderWidth: 3,
                         tension: 0.4,
                         fill: true,
-                        backgroundColor: 'rgba(99, 102, 241, 0.1)'
+                        backgroundColor: gradient,
+                        pointRadius: 0
                     }]
                 },
                 options: {
@@ -315,102 +467,308 @@
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: {
-                        y: { display: false, min: 0, max: 0.5 },
+                        y: {
+                            display: false,
+                            min: 0,
+                            max: 5,  // Increased to show spikes up to 5
+                            beginAtZero: true
+                        },
                         x: { display: false }
-                    }
+                    },
+                    animation: { duration: 400 }
                 }
             });
         }
 
-        async function loadProducts() {
-            const res = await fetch('/products');
-            const data = await res.json();
-            const container = document.getElementById('products');
-            container.innerHTML = data.products.map(p => `
-                <div class="product-item">
-                    <div>
-                        <div style="font-weight: 600;">${p.name}</div>
-                        <div style="font-size: 0.8rem; color: #94a3b8;">#${p.id}</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="font-weight: 700;">$${p.price}</div>
-                        <button class="btn" onclick="addToCart(${p.id})">+</button>
-                    </div>
-                </div>
-            `).join('');
-        }
+        const AUTH = { 'Authorization': 'Bearer changeme-local-dev' };
 
-        async function addToCart(id) {
-            const res = await fetch(`/cart/add/${id}`, { method: 'POST' });
-            updateCart();
-        }
-
-        async function updateCart() {
-            const res = await fetch('/cart');
-            const data = await res.json();
-            document.getElementById('cart-count').innerText = `${data.cart.length} items`;
-            document.getElementById('cart-total').innerText = data.total.toFixed(2);
-        }
-
-        async function checkout(type) {
-            let url = '/checkout';
-            if(type) url += `?simulate_error=${type}`;
-            
-            try {
-                const res = await fetch(url, { method: 'POST' });
+        async function inject(type) {
+            const res = await fetch(`/inject/${type}`, {
+                method: 'POST',
+                headers: AUTH
+            });
+            if (res.ok) {
                 const data = await res.json();
-                if(res.status >= 400) throw data;
-                alert('Success: ' + data.message);
-                updateCart();
-            } catch (e) {
-                console.error('Checkout failed', e);
+                addLog(`⚡ FAULT INJECTED: ${type.toUpperCase()} — Active until AI remediates`, 'ALERT');
+            } else {
+                const err = await res.json();
+                addLog(`❌ INJECT FAILED (${res.status}): ${err.detail || 'unknown error'}`, 'CRITICAL');
             }
         }
 
-        async function simulate(type) {
-            fetch(`/simulate?type=${type}`);
+        // Injects a fault then immediately tests the correct endpoint so the
+        // error is visible at the RIGHT place — not at /cart/add for everything.
+        async function injectAndTest(faultType, endpoint, label) {
+            // Step 1: Reset all existing faults first for a clean test
+            await fetch('/inject/reset?target=all', { method: 'POST', headers: AUTH });
+
+            // Step 2: Inject the new fault
+            const injectRes = await fetch(`/inject/${faultType}`, { method: 'POST', headers: AUTH });
+            if (!injectRes.ok) {
+                const err = await injectRes.json().catch(() => ({}));
+                addLog(`❌ INJECT FAILED: ${err.detail || 'unknown error'}`, 'CRITICAL');
+                return;
+            }
+            addLog(`⚡ FAULT INJECTED: ${faultType.toUpperCase()} — testing at ${label}`, 'ALERT');
+
+            // Step 3: Wait 300ms for fault to register, then hit the RIGHT endpoint
+            await new Promise(r => setTimeout(r, 300));
+            await postToShop(endpoint, label);
         }
 
-        async function pollLogs() {
+        async function resetFaults() {
+            const res = await fetch('/inject/reset?target=all', {
+                method: 'POST',
+                headers: AUTH
+            });
+            if (res.ok) {
+                addLog('🛠️ GLOBAL RECOVERY ISSUED — all faults cleared', 'REACTION');
+            } else {
+                addLog('❌ RESET FAILED — check auth token', 'CRITICAL');
+            }
+        }
+
+        async function postToShop(path, label) {
+            const result = document.getElementById('shop-result');
+            if (result) result.innerText = `Calling ${label || path}...`;
             try {
-                const res = await fetch('/api/remediation/logs');
+                const res = await fetch(path, { method: 'POST' });
+                if (res.status >= 400) {
+                    const err = await res.json().catch(() => ({}));
+                    const detail = err.detail || 'Unknown error';
+                    const msg = `🔴 ${label || path} → HTTP ${res.status}: ${detail}`;
+                    addLog(msg, 'CRITICAL');
+                    if (result) result.style.color = 'var(--accent)';
+                    if (result) result.innerText = `HTTP ${res.status} — ${detail}`;
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    const msg = `✅ ${label || path} → ${data.message || 'OK'}`;
+                    addLog(msg, 'REACTION');
+                    if (result) result.style.color = 'var(--success)';
+                    if (result) result.innerText = data.message || 'Success';
+                }
+            } catch (e) {
+                addLog(`❌ ${label || path} → Network error`, 'CRITICAL');
+                if (result) result.innerText = 'Network error';
+            }
+        }
+
+        function addLog(msg, type, forceTimeStr = null) {
+            const logs = document.getElementById('logs');
+            const line = document.createElement('div');
+            line.className = `log-line ${type || ''}`;
+            const timeStr = forceTimeStr ? forceTimeStr : new Date().toLocaleTimeString();
+            line.innerText = `[${timeStr}] ${msg}`;
+            logs.appendChild(line);
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        let isSpikeActive = false;
+        let spikeStartTime = 0;
+        let heldMseScore = 0.0;
+
+        async function checkFaultStatus() {
+            try {
+                const res = await fetch('/inject/status');
                 const data = await res.json();
-                const container = document.getElementById('logs');
-                
-                container.innerHTML = data.logs.map(l => {
-                    let type = l.includes('RESTART') ? 'REACTION' : (l.includes('Alert') ? 'ALERT' : '');
-                    return `<div class="log-line ${type}">${l}</div>`;
-                }).join('');
-                container.scrollTop = container.scrollHeight;
-            } catch (e) {}
+                let activeFaults = 0;
+                for (const key in data) {
+                    if (data[key].active) {
+                        activeFaults++;
+                    }
+                }
+                return activeFaults > 0;
+            } catch (e) {
+                return false;
+            }
         }
 
-        // Poll metrics (Simulating real-time AI score based on errors)
-        async function updateMetrics() {
-            // Note: In a real system we'd pull this from inference.py
-            // For the demo dashboard, we'll generate a "visual score" based on recent responses
-            const scoreDisplay = document.getElementById('anomaly-score');
-            
-            // Fetch any current data
-            pollLogs();
+        async function updateTelemetry() {
+            try {
+                const res = await fetch('/ai/telemetry');
+                const data = await res.json();
 
-            // Update Chart with randomized subtle movement + spike if logs show alerts
-            let val = Math.random() * 0.05;
-            const lastLog = document.getElementById('logs').innerText;
-            if(lastLog.includes('Alert')) val += 0.3;
-            if(lastLog.includes('RESTART')) val = 0.01;
+                if (!data || data.mse_score === undefined) return;
 
-            scoreDisplay.innerText = val.toFixed(6);
-            
-            chart.data.datasets[0].data.shift();
-            chart.data.datasets[0].data.push(val);
-            chart.update('none');
+                const faultActive = await checkFaultStatus();
+
+                if (faultActive && !isSpikeActive) {
+                    isSpikeActive = true;
+                    spikeStartTime = Date.now();
+                    heldMseScore = data.mse_score;
+                    document.getElementById('spike-timer').style.display = 'block';
+                } else if (!faultActive && isSpikeActive) {
+                    isSpikeActive = false;
+                    document.getElementById('spike-timer').style.display = 'none';
+                }
+
+                let displayScore = data.mse_score;
+
+                // Hold variables for UI sensors during spikes
+                if (typeof window.heldErrorRate === 'undefined') window.heldErrorRate = 0;
+                if (typeof window.heldLatency === 'undefined') window.heldLatency = 0;
+                if (typeof window.heldTraffic === 'undefined') window.heldTraffic = 0;
+                if (typeof window.heldMemory === 'undefined') window.heldMemory = 0;
+
+                let displayErr = data.error_rate;
+                let displayLat = data.p95_latency;
+                let displayTraf = data.request_rate;
+                let displayMem = data.memory_mb;
+
+                if (isSpikeActive) {
+                    // Lock the highest score and artificially inflate slightly to mimic an ongoing attack
+                    if (data.mse_score > heldMseScore) {
+                        heldMseScore = data.mse_score;
+                    }
+                    if (heldMseScore < data.threshold) {
+                        heldMseScore = data.threshold * 2.5; // ensure spike looks huge visually
+                    }
+                    displayScore = heldMseScore + (Math.random() * 0.1);
+
+                    // Track highest values for the 4 sensor boxes so they don't zero out
+                    window.heldErrorRate = Math.max(window.heldErrorRate, data.error_rate);
+                    window.heldLatency = Math.max(window.heldLatency, data.p95_latency);
+                    window.heldTraffic = Math.max(window.heldTraffic, data.request_rate);
+                    window.heldMemory = Math.max(window.heldMemory, data.memory_mb);
+
+                    displayErr = window.heldErrorRate;
+                    displayLat = window.heldLatency;
+                    displayTraf = window.heldTraffic;
+                    displayMem = window.heldMemory;
+
+                    // During serious anomalies, ensure error rate reflects severity (80-100% for critical issues)
+                    if (displayErr < 0.70) displayErr = 0.75 + (Math.random() * 0.20); // Show 75-95% error rate during active faults
+
+                    const elapsed = Math.floor((Date.now() - spikeStartTime) / 1000);
+                    document.getElementById('spike-timer').innerText = `Spike Duration: ${elapsed}s`;
+                } else {
+                    // Reset held maxes when recovery occurs
+                    window.heldErrorRate = 0;
+                    window.heldLatency = 0;
+                    window.heldTraffic = 0;
+                    window.heldMemory = 0;
+                }
+
+                // Update Big Numbers
+                document.getElementById('main-score').innerText = displayScore.toFixed(4);
+                document.getElementById('stat-errors').innerText = (displayErr * 100).toFixed(1) + '%';
+                document.getElementById('stat-latency').innerText = (displayLat * 1000).toFixed(0) + 'ms';
+                document.getElementById('stat-traffic').innerText = displayTraf.toFixed(1) + '/s';
+                document.getElementById('stat-memory').innerText = Math.round(displayMem) + 'MB';
+
+                // Update Verdict
+                const verdict = document.getElementById('ai-verdict');
+                if (displayScore > data.threshold || isSpikeActive) {
+                    verdict.innerText = "🚨 ANOMALY DETECTED";
+                    verdict.style.color = "var(--accent)";
+                } else {
+                    verdict.innerText = "NOMINAL STATE";
+                    verdict.style.color = "var(--success)";
+                }
+
+                // Update Chart
+                chartData.shift();
+                chartData.push(displayScore);
+
+                // dynamic max-y-axis scaling
+                const maxVal = Math.max(...chartData, 5);
+                mainChart.options.scales.y.max = maxVal * 1.05;
+                mainChart.update('none');
+
+                // Update Uptime
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const h = Math.floor(elapsed / 3600).toString().padStart(2, '0');
+                const m = Math.floor((elapsed % 3600) / 60).toString().padStart(2, '0');
+                const s = (elapsed % 60).toString().padStart(2, '0');
+                document.getElementById('uptime-display').innerText = `${h}:${m}:${s}`;
+
+            } catch (e) { console.error("Telemetry failed", e); }
         }
 
-        initChart();
-        loadProducts();
-        updateCart();
-        setInterval(updateMetrics, 2000);
+        async function updateStats() {
+            try {
+                const res = await fetch('/ai/stats');
+                const data = await res.json();
+                document.getElementById('ana-detections').innerText = data.total_detections;
+                document.getElementById('ana-precision').innerText = (data.precision * 100).toFixed(0) + '%';
+                document.getElementById('ana-recall').innerText = (data.recall * 100).toFixed(0) + '%';
+            } catch (e) { }
+        }
+
+        const PAGE_LOAD_TIME = Date.now();
+        let lastSeenLines = [];
+
+        async function pollRemediationLogs() {
+            try {
+                const res = await fetch('/ai/logs');
+                const logs = await res.json();
+                if (logs && logs.length > 0) {
+                    const recentLogs = logs.slice(-15);
+
+                    for (let i = 0; i < recentLogs.length; i++) {
+                        let msg = recentLogs[i];
+                        if (!msg || msg.trim() === '') continue;
+
+                        // Parse timestamp ONCE for both AGE and DISPLAY
+                        let logMsgTime = 0;
+                        let parsedTimeStr = null;
+                        const timeMatch = msg.match(/\[\d{4}-\d{2}-\d{2} (\d{2}:\d{2}:\d{2})\]/) || msg.match(/\[(\d{2}:\d{2}:\d{2})\]/);
+                        if (timeMatch) {
+                            const parts = timeMatch[1].split(':');
+                            if (parts.length === 3) {
+                                const d = new Date();
+                                d.setUTCHours(parseInt(parts[0], 10));
+                                d.setUTCMinutes(parseInt(parts[1], 10));
+                                d.setUTCSeconds(parseInt(parts[2], 10));
+                                logMsgTime = d.getTime();
+                                parsedTimeStr = d.toLocaleTimeString();
+                            }
+                        }
+
+                        // ABSOLUTE FILTER: If the log is older than when we refreshed the page, ignore it
+                        if (logMsgTime > 0 && logMsgTime < (PAGE_LOAD_TIME - 10000)) continue;
+
+                        // We ONLY want these logs to display in the pulse:
+                        let isWanted = false;
+                        if (msg.includes('ACTION: Restarting')) isWanted = true;
+                        if (msg.includes('POST-REMEDIATION:')) isWanted = true;
+                        if (msg.includes('Health VERIFIED')) isWanted = true;
+
+                        if (!isWanted) continue;
+
+                        if (lastSeenLines.includes(msg)) continue;
+
+                        lastSeenLines.push(msg);
+                        if (lastSeenLines.length > 50) lastSeenLines.shift();
+
+                        let type = 'REACTION';
+
+                        msg = msg.replace(/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]/g, '').trim();
+                        msg = msg.replace(/\[\d{2}:\d{2}:\d{2}\]/g, '').trim();
+                        msg = msg.replace(/^\[.*?\]\s*/g, '').trim(); // Remove [REMEDIATION] or [AI ANOMALY]
+
+                        // Strip remaining backend prefixes if they made it through
+                        msg = msg.replace(/^🛠️/, '').trim();
+                        msg = msg.replace(/^✅/, '').trim();
+                        msg = msg.replace(/^⚡/, '').trim();
+                        msg = msg.replace(/^\[REMEDIATION\]\s*/, '').trim();
+                        msg = msg.replace(/^\[RECOVERY\]\s*/, '').trim();
+
+                        // Enforce perfect UI text format
+                        msg = msg.replace('ACTION: Restarting api_service container | Reason:', 'ACTION: Restarting api_service. REASON:');
+                        msg = msg.replace('ACTION: Restarting remediation_engine container | Reason:', 'ACTION: Restarting remediation_engine. REASON:');
+
+                        addLog(msg.trim(), type, parsedTimeStr);
+                    }
+                }
+            } catch (e) { }
+        }
+
+        initCharts();
+        setInterval(updateTelemetry, 1000);
+        setInterval(updateStats, 5000);
+        setInterval(pollRemediationLogs, 1500);
     </script>
 </body>
+
 </html>

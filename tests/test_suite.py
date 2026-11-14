@@ -431,6 +431,200 @@ class TestThresholdLogic(unittest.TestCase):
 
 
 # ═══════════════════════════════════════════════════════════════════════
+# UNIT TESTS — Auth Token Guard
+# ═══════════════════════════════════════════════════════════════════════
+
+class TestAuthTokenGuard(unittest.TestCase):
+    """Tests for api_service/app/auth.py require_token dependency."""
+
+    def _make_dep(self, token_env="secret123"):
+        """Build the require_token function with a controlled INJECT_TOKEN env."""
+        import importlib
+        with patch.dict(os.environ, {"INJECT_TOKEN": token_env}):
+            import api_service.app.auth as auth_mod
+            importlib.reload(auth_mod)
+            return auth_mod.require_token, auth_mod._TOKEN
+
+    def test_correct_bearer_token_passes(self):
+        try:
+            from api_service.app.auth import require_token
+            import importlib, api_service.app.auth as m
+            with patch.dict(os.environ, {"INJECT_TOKEN": "mysecret"}):
+                importlib.reload(m)
+                # Should not raise
+                m.require_token(authorization="Bearer mysecret", token=None)
+        except ImportError:
+            self.skipTest("api_service not importable in this environment")
+
+    def test_wrong_token_raises_403(self):
+        try:
+            from fastapi import HTTPException
+            import importlib, api_service.app.auth as m
+            with patch.dict(os.environ, {"INJECT_TOKEN": "mysecret"}):
+                importlib.reload(m)
+                with self.assertRaises(HTTPException) as ctx:
+                    m.require_token(authorization="Bearer wrongtoken", token=None)
+                self.assertEqual(ctx.exception.status_code, 403)
+        except ImportError:
+            self.skipTest("api_service not importable in this environment")
+
+    def test_missing_token_raises_401(self):
+        try:
+            from fastapi import HTTPException
+            import importlib, api_service.app.auth as m
+            with patch.dict(os.environ, {"INJECT_TOKEN": "mysecret"}):
+                importlib.reload(m)
+                with self.assertRaises(HTTPException) as ctx:
+                    m.require_token(authorization=None, token=None)
+                self.assertEqual(ctx.exception.status_code, 401)
+        except ImportError:
+            self.skipTest("api_service not importable in this environment")
+
+    def test_token_disabled_when_env_not_set(self):
+        """When INJECT_TOKEN is empty, every call should pass silently."""
+        try:
+            import importlib, api_service.app.auth as m
+            with patch.dict(os.environ, {"INJECT_TOKEN": ""}):
+                importlib.reload(m)
+                result = m.require_token(authorization=None, token=None)
+                self.assertIsNone(result)  # No exception raised
+        except ImportError:
+            self.skipTest("api_service not importable in this environment")
+
+    def test_query_param_token_accepted(self):
+        """Token can be supplied as ?token= query parameter."""
+        try:
+            import importlib, api_service.app.auth as m
+            with patch.dict(os.environ, {"INJECT_TOKEN": "qparam"}):
+                importlib.reload(m)
+                m.require_token(authorization=None, token="qparam")  # should not raise
+        except ImportError:
+            self.skipTest("api_service not importable in this environment")
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# UNIT TESTS — Precision / Recall / F1 Math
+# ═══════════════════════════════════════════════════════════════════════
+
+class TestPrecisionRecall(unittest.TestCase):
+    """
+    Tests the AIStats precision/recall/F1 model in isolation.
+    Verified from decision_engine perspective: RESTART_SUCCESS_VERIFIED = TP,
+    RESTART_SUCCESS_UNVERIFIED = FP.
+    """
+
+    def _make_stats(self, verified=0, unverified=0, incidents=0):
+        try:
+            from api_service.app.routes import AIStats
+            s = AIStats()
+            s.restarts_verified   = verified
+            s.restarts_unverified = unverified
+            s.total_incidents     = incidents
+            return s
+        except ImportError:
+            return None
+
+    def test_precision_is_one_when_no_restarts(self):
+        s = self._make_stats()
+        if s is None: self.skipTest("api_service not importable")
+        self.assertEqual(s.precision, 1.0)
+
+    def test_precision_correct_with_mixed_restarts(self):
+        s = self._make_stats(verified=8, unverified=2)
+        if s is None: self.skipTest("api_service not importable")
+        self.assertAlmostEqual(s.precision, 0.8, places=2)
+
+    def test_recall_zero_when_no_incidents(self):
+        s = self._make_stats(verified=5, incidents=0)
+        if s is None: self.skipTest("api_service not importable")
+        self.assertEqual(s.recall, 0.0)
+
+    def test_recall_correct(self):
+        s = self._make_stats(verified=7, incidents=10)
+        if s is None: self.skipTest("api_service not importable")
+        self.assertAlmostEqual(s.recall, 0.7, places=2)
+
+    def test_f1_zero_when_recall_zero(self):
+        s = self._make_stats(verified=0, unverified=0, incidents=0)
+        if s is None: self.skipTest("api_service not importable")
+        self.assertEqual(s.f1_score, 0.0)
+
+    def test_f1_is_harmonic_mean(self):
+        s = self._make_stats(verified=8, unverified=2, incidents=10)
+        if s is None: self.skipTest("api_service not importable")
+        p = s.precision   # 8/10 = 0.8
+        r = s.recall      # 8/10 = 0.8
+        expected_f1 = 2 * p * r / (p + r)
+        self.assertAlmostEqual(s.f1_score, expected_f1, places=3)
+
+    def test_perfect_precision_and_recall(self):
+        s = self._make_stats(verified=5, unverified=0, incidents=5)
+        if s is None: self.skipTest("api_service not importable")
+        self.assertEqual(s.precision, 1.0)
+        self.assertEqual(s.recall, 1.0)
+        self.assertEqual(s.f1_score, 1.0)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# UNIT TESTS — Config Validator
+# ═══════════════════════════════════════════════════════════════════════
+
+class TestConfigValidator(unittest.TestCase):
+
+    def _run_validate(self, env_overrides: dict) -> bool:
+        import importlib
+        with patch.dict(os.environ, env_overrides, clear=False):
+            try:
+                import remediation_engine.config_validator as cv
+                importlib.reload(cv)
+                return cv.validate(exit_on_failure=False)
+            except ImportError:
+                self.skipTest("remediation_engine not importable")
+
+    def _minimal_valid_env(self):
+        return {
+            "PROMETHEUS_URL":           "http://prometheus:9090",
+            "API_REPORT_URL":           "http://api_service:8000/ai/report",
+            "API_RESET_URL":            "http://api_service:8000/inject/reset?target=all",
+            "TARGET_CONTAINER_NAME":    "api_service",
+            "DOCKER_SOCKET_URL":        "unix:///var/run/docker.sock",
+            "REMEDIATION_COOLDOWN_SECONDS": "60",
+            "HIGH_CPU_THRESHOLD":       "70.0",
+        }
+
+    def test_valid_config_passes(self):
+        result = self._run_validate(self._minimal_valid_env())
+        self.assertTrue(result)
+
+    def test_missing_required_var_fails(self):
+        env = self._minimal_valid_env()
+        env.pop("PROMETHEUS_URL", None)
+        with patch.dict(os.environ, {}, clear=True):
+            with patch.dict(os.environ, env):
+                os.environ.pop("PROMETHEUS_URL", None)
+                try:
+                    import remediation_engine.config_validator as cv
+                    import importlib
+                    importlib.reload(cv)
+                    result = cv.validate(exit_on_failure=False)
+                    self.assertFalse(result)
+                except ImportError:
+                    self.skipTest("remediation_engine not importable")
+
+    def test_bad_type_fails(self):
+        env = self._minimal_valid_env()
+        env["REMEDIATION_COOLDOWN_SECONDS"] = "not_a_number"
+        result = self._run_validate(env)
+        self.assertFalse(result)
+
+    def test_out_of_range_fails(self):
+        env = self._minimal_valid_env()
+        env["HIGH_CPU_THRESHOLD"] = "150.0"  # max is 100
+        result = self._run_validate(env)
+        self.assertFalse(result)
+
+
+# ═══════════════════════════════════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════════════════════════════════
 

@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 import uvicorn
 import datetime
 import os
-import subprocess
+import docker
 import time
 import requests
 from typing import Dict
@@ -43,7 +43,10 @@ def log_action(message: str, level: str = "INFO"):
 # =============================
 
 def restart_container(container_name: str):
-    subprocess.run(["docker", "restart", container_name], check=True)
+    docker_socket = os.getenv("DOCKER_SOCKET_URL", "unix:///var/run/docker.sock")
+    client = docker.DockerClient(base_url=docker_socket)
+    container = client.containers.get(container_name)
+    container.restart()
 
 
 def verify_health() -> bool:
@@ -176,6 +179,12 @@ async def receive_alert(request: Request):
 # =============================
 
 if __name__ == "__main__":
+    import logging
+    logging.basicConfig(level=logging.INFO, format="[%(asctime)s] %(levelname)s %(message)s")
+
+    from remediation_engine.config_validator import validate
+    validate()
+
     uvicorn.run(
         "remediation_engine.webhook_server:app",
         host="0.0.0.0",

@@ -1,13 +1,18 @@
 {
-  "threshold": 0.06973566666245416,
-  "method": "val_mse_p99.0",
-  "mean_val_mse": 0.006561420473821625,
-  "std_val_mse": 0.015788005302178717,
-  "p95_val_mse": 0.01833196375519032,
-  "p99_val_mse": 0.06973566666245416,
-  "best_epoch": 39,
-  "best_val_loss": 0.006535034711388024,
-  "total_samples": 17375,
-  "train_samples": 13900,
-  "val_samples": 3475
+  "threshold": 2.44963002204895,
+  "static_threshold": 2.44963002204895,
+  "training_samples": 324,
+  "detection_rate": 1.0,
+  "false_positive_rate": 0.16666666666666666,
+  "trained_on": "real_data_lstm_improved",
+  "model_params": {
+    "hidden_size": 32,
+    "num_layers": 1,
+    "sequence_length": 30
+  },
+  "live_threshold": null,
+  "dynamic_threshold": 2.44963002204895,
+  "live_samples": 89,
+  "fine_tune_count": 0,
+  "last_updated": "2026-03-03T13:00:00Z"
 }

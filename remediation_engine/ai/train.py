@@ -48,6 +48,10 @@ THRESHOLD_PERCENTILE = 99.0        # percentile of val MSE used as threshold
 MODEL_DIR           = os.path.join(os.path.dirname(__file__), "..", "..", "models")
 DEVICE              = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# Feature Significance Weights: [request_rate, error_rate, p95_latency, memory_mb, active_connections]
+# Matches InferenceEngine V4 priorities
+FEATURE_WEIGHTS = torch.tensor([1.0, 10.0, 3.0, 1.0, 1.0], dtype=torch.float32).to(DEVICE)
+
 
 # ─────────────────────────────────────────────
 # HELPERS
@@ -67,7 +71,9 @@ def _evaluate(model, loader, criterion, device):
         for batch_X, batch_y in loader:
             batch_X, batch_y = batch_X.to(device), batch_y.to(device)
             pred = model(batch_X)
-            total_loss += criterion(pred, batch_y).item()
+            sq_diff = (pred - batch_y) ** 2
+            loss = torch.mean(sq_diff * FEATURE_WEIGHTS)
+            total_loss += loss.item()
     return total_loss / len(loader)
 
 
@@ -155,7 +161,10 @@ def train():
             batch_X, batch_y = batch_X.to(DEVICE), batch_y.to(DEVICE)
             optimizer.zero_grad()
             pred = model(batch_X)
-            loss = criterion(pred, batch_y)
+            # ── Weighted MSE Training ──
+            sq_diff = (pred - batch_y) ** 2
+            loss = torch.mean(sq_diff * FEATURE_WEIGHTS)
+            
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
             optimizer.step()
@@ -206,8 +215,20 @@ def train():
         for batch_X, batch_y in val_loader:
             batch_X, batch_y = batch_X.to(DEVICE), batch_y.to(DEVICE)
             pred = model(batch_X)
-            per_sample_mse = torch.mean((pred - batch_y) ** 2, dim=1)
-            all_mse.extend(per_sample_mse.cpu().numpy().tolist())
+            
+            # --- Aligned Hybrid Identification Logic (Matches Inference V4) ---
+            # 1. Prediction Error
+            sq_diff_pred = (pred - batch_y) ** 2
+            pred_err = torch.mean(sq_diff_pred * FEATURE_WEIGHTS, dim=1)
+            
+            # 2. State Deviation (how far is truth from healthy zero)
+            sq_diff_dev = (batch_y ** 2)
+            state_dev = torch.mean(sq_diff_dev * FEATURE_WEIGHTS, dim=1)
+            
+            # Hybrid Score
+            hybrid_score = (0.7 * pred_err) + (0.3 * state_dev)
+            
+            all_mse.extend(hybrid_score.cpu().numpy().tolist())
 
     all_mse = np.array(all_mse)
     threshold = float(np.percentile(all_mse, THRESHOLD_PERCENTILE))

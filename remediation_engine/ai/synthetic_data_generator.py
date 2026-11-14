@@ -68,21 +68,34 @@ def generate_normal(n=600):
     return _stack(rr, er, lat, mem, conns)
 
 
-def generate_crash_500(n=300, pre=100, fault=80, recovery=120):
+def generate_crash_500(n=600, pre=100, fault=400, recovery=100):
+    """
+    Enhanced Crash Scenario:
+    Includes a LONG period of sustained failure (flatline at 1.0)
+    to prevent the model from 'accepting' failure as the new normal.
+    Also drops metrics to zero (Zombie Service).
+    """
     assert pre + fault + recovery == n
+    
+    # 1. Normal Pre-phase
     rr_p  = 1.5 + _noise(pre, 0.1);    er_p  = 0.004 + np.abs(_noise(pre, 0.003))
     lat_p = 0.18 + _noise(pre, 0.02);  mem_p = 85.0  + _noise(pre, 2.0)
     con_p = 8.0  + np.abs(_noise(pre, 1.0))
 
-    rr_f  = 0.1  + np.abs(_noise(fault, 0.05));   er_f  = _ramp(0.5, 0.98, fault)  + _noise(fault, 0.02)
-    lat_f = _ramp(0.2, 2.5, fault) + _noise(fault, 0.1); mem_f = _ramp(85, 180, fault) + _noise(fault, 5)
-    con_f = _ramp(8, 2, fault) + np.abs(_noise(fault, 0.5))
+    # 2. Critical Fault Phase (Long Flatline + Zeroing metrics)
+    # We simulate a process that is alive but totally unresponsive/metrics-blind
+    rr_f  = np.full(fault, 0.05)       + np.abs(_noise(fault, 0.02))
+    er_f  = np.full(fault, 1.0)        # TOTAL FAILURE
+    lat_f = np.full(fault, 10.0)       # TIMEOUTS
+    mem_f = np.full(fault, 0.0)        # ZOMBIE metrics (observed in user logs)
+    con_f = np.full(fault, 0.0)
 
-    rr_r  = _ramp(0.1, 1.5, recovery) + _noise(recovery, 0.1)
-    er_r  = _ramp(0.3, 0.005, recovery) + np.abs(_noise(recovery, 0.01))
-    lat_r = _ramp(1.5, 0.18, recovery) + np.abs(_noise(recovery, 0.02))
-    mem_r = _ramp(180, 85, recovery)   + _noise(recovery, 2.0)
-    con_r = _ramp(2, 8, recovery)      + np.abs(_noise(recovery, 0.5))
+    # 3. Recovery Phase
+    rr_r  = _ramp(0.05, 1.5, recovery) + _noise(recovery, 0.1)
+    er_r  = _ramp(1.0, 0.004, recovery) + np.abs(_noise(recovery, 0.01))
+    lat_r = _ramp(10.0, 0.18, recovery) + np.abs(_noise(recovery, 0.02))
+    mem_r = _ramp(0.0, 85, recovery)    + _noise(recovery, 2.0)
+    con_r = _ramp(0.0, 8, recovery)     + np.abs(_noise(recovery, 0.5))
 
     return _stack(
         np.concatenate([rr_p,  rr_f,  rr_r]),

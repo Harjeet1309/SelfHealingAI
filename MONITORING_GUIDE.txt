@@ -1,0 +1,239 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║           WHERE TO SEE ERRORS BEING CAUGHT                     ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎯 QUICK ANSWER                                               │
+└────────────────────────────────────────────────────────────────┘
+
+  To see AI detecting and healing errors, run:
+
+  docker-compose logs -f remediation_engine
+
+  This is THE MAIN terminal to watch! ⭐
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  📺 THREE MONITORING OPTIONS                                   │
+└────────────────────────────────────────────────────────────────┘
+
+  1️⃣  AI BRAIN (RECOMMENDED) ⭐
+      
+      docker-compose logs -f remediation_engine
+      
+      Shows:
+      • AI detecting anomalies
+      • Decision-making process
+      • Remediation actions
+      • Recovery verification
+
+
+  2️⃣  APPLICATION ERRORS
+      
+      docker-compose logs -f api_service
+      
+      Shows:
+      • Raw HTTP errors (500, 503, 504)
+      • Request logs
+      • Container restarts
+
+
+  3️⃣  VISUAL DASHBOARD (EASIEST)
+      
+      http://localhost:8000/dashboard
+      
+      Shows:
+      • Live charts
+      • Error counts
+      • Action logs
+      • Real-time status
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎬 WHAT YOU'LL SEE (Step-by-Step)                            │
+└────────────────────────────────────────────────────────────────┘
+
+  PHASE 1: Normal Operation
+  ──────────────────────────────────────────────────────────────
+  [ MONITORING PULSE ] - 14:23:45
+  📊 REQUESTS: 2.34/s | ERRORS:  0.4% | LATENCY:  125.3ms
+  🟢 AI STATUS: HEALTHY
+
+
+  PHASE 2: Errors Start
+  ──────────────────────────────────────────────────────────────
+  [ MONITORING PULSE ] - 14:23:50
+  📊 REQUESTS: 0.20/s | ERRORS: 85.0% | LATENCY: 2340.1ms
+  🔴 AI STATUS: STATE CRITICAL
+
+
+  PHASE 3: AI Confirms
+  ──────────────────────────────────────────────────────────────
+  🔎 CONFIRMING: [████░░] (4/5)
+
+
+  PHASE 4: AI Triggers Remediation
+  ──────────────────────────────────────────────────────────────
+  🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  ⚡ [REMEDIATION] TRIGGERING ACTION
+  🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+
+  PHASE 5: Container Restarts
+  ──────────────────────────────────────────────────────────────
+  ════════════════════════════════════════════════════════════
+  🛠️ [REMEDIATION]
+  ════════════════════════════════════════════════════════════
+  ACTION: Restarting api_service. REASON: State Corruption
+  ════════════════════════════════════════════════════════════
+
+
+  PHASE 6: Recovery Verified
+  ──────────────────────────────────────────────────────────────
+  ════════════════════════════════════════════════════════════
+  ✅ [RECOVERY]
+  ════════════════════════════════════════════════════════════
+  POST-REMEDIATION: Health VERIFIED. Recovery confirmed.
+  ════════════════════════════════════════════════════════════
+
+
+  PHASE 7: Back to Normal
+  ──────────────────────────────────────────────────────────────
+  [ MONITORING PULSE ] - 14:24:30
+  🟢 AI STATUS: HEALTHY
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🖥️  RECOMMENDED TERMINAL SETUP                                │
+└────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────┐  ┌─────────────────────────┐
+  │  TERMINAL 1 (Watch)     │  │  TERMINAL 2 (Commands)  │
+  │                         │  │                         │
+  │  docker-compose logs    │  │  # Inject fault:        │
+  │  -f remediation_engine  │  │  curl -X POST ...       │
+  │                         │  │                         │
+  │  [Keep this visible!]   │  │  # Generate traffic:    │
+  │                         │  │  for ($i=1; ...)        │
+  └─────────────────────────┘  └─────────────────────────┘
+
+  ┌───────────────────────────────────────────────────────┐
+  │  BROWSER (Dashboard)                                  │
+  │                                                       │
+  │  http://localhost:8000/dashboard                   │
+  │                                                       │
+  │  [Watch charts and action logs update in real-time]  │
+  └───────────────────────────────────────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎯 COMPLETE DEMO SCRIPT                                       │
+└────────────────────────────────────────────────────────────────┘
+
+  Step 1: Open Terminal 1 and run:
+  
+  docker-compose logs -f remediation_engine
+
+
+  Step 2: Open Terminal 2 and run:
+  
+  # Inject a crash fault
+  curl -X POST http://localhost:8000/inject/500_checkout
+  
+  # Generate error traffic
+  for ($i=1; $i -le 30; $i++) {
+      curl -s -X POST http://localhost:8000/checkout
+      Start-Sleep -Milliseconds 100
+  }
+
+
+  Step 3: Watch Terminal 1
+  
+  You'll see the AI detect, decide, and heal!
+
+
+  Step 4: Open Browser
+  
+  http://localhost:8000/dashboard
+  
+  Watch the dashboard update in real-time!
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🔍 WHAT TO LOOK FOR                                           │
+└────────────────────────────────────────────────────────────────┘
+
+  ✅ Signs of Error Detection:
+  
+  • 🔴 AI STATUS: STATE CRITICAL
+  • ANOMALY DETECTED
+  • TRIGGERING ACTION
+  • Restarting api_service
+  • Health VERIFIED
+  • Recovery confirmed
+
+
+  ✅ In Dashboard:
+  
+  • Red status indicator
+  • Chart spikes
+  • New action in ledger
+  • Error count increases
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  ⏱️  TIMELINE                                                   │
+└────────────────────────────────────────────────────────────────┘
+
+  0s     → Fault injected
+  0-10s  → Errors being generated
+  10-20s → AI detects anomaly
+  20s    → AI triggers restart
+  20-25s → Container restarts
+  25-30s → Health verified
+  30s+   → Back to normal
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  💡 PRO TIPS                                                   │
+└────────────────────────────────────────────────────────────────┘
+
+  1. Use side-by-side terminals
+     Left: AI logs | Right: Commands
+  
+  2. Keep dashboard open in browser
+     Watch visual updates in real-time
+  
+  3. Search logs for specific events:
+     docker-compose logs remediation_engine | Select-String "ANOMALY"
+  
+  4. Save logs for later analysis:
+     docker-compose logs remediation_engine > ai_logs.txt
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  🚀 QUICK START                                                │
+└────────────────────────────────────────────────────────────────┘
+
+  Ready to see it in action?
+
+  Terminal 1:
+  docker-compose logs -f remediation_engine
+
+  Terminal 2:
+  curl -X POST http://localhost:8000/inject/500_checkout
+
+  Browser:
+  http://localhost:8000/dashboard
+
+  Watch the AI work its magic! 🤖✨
+
+
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║  📚 MORE INFO: See WHERE_TO_SEE_ERRORS.md                     ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝

@@ -21,3 +21,940 @@ Scenario 5: Hanging Payment (504)
 Inject (PS): Invoke-RestMethod -Method POST "http://localhost:8000/inject/504_timeout"
 Trigger: Click "Pay Now".
 Result: Spinner appears, then RED (504). AI detects "Clogged Pipeline" and restarts to clear the threads.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[12:34:27] Iteration #46
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2009
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0425
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.815108
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.04s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     46 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:33] Iteration #47
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.1612
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0220
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.809404
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.161)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.02s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     47 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:38] Iteration #48
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.1612
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0220
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.803701
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.161)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.02s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     48 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:43] Iteration #49
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.1612
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0220
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.797997
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.161)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.02s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     49 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:48] Iteration #50
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2015
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0212
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.792293
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.02s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     50 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:53] Iteration #51
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2015
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0212
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.786590
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.02s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     51 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:34:59] Iteration #52
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2000
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.782969
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.200)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     52 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:04] Iteration #53
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.779348
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     53 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:09] Iteration #54
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.775727
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     54 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:14] Iteration #55
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.1608
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.772106
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.161)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     55 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:19] Iteration #56
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.1206
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.768485
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.121)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     56 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:24] Iteration #57
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 1.4028
+  ⚪ error_rate          : 0.0572
+  ⚪ p95_latency         : 0.0049
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.764864
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=1.403)
+  Has Errors:       ✅ (rate=0.057)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     57 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:29] Iteration #58
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 1.1691
+  ⚪ error_rate          : 0.0683
+  ⚪ p95_latency         : 0.0048
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.761243
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=1.169)
+  Has Errors:       ✅ (rate=0.068)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     58 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:35] Iteration #59
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 1.0662
+  ⚪ error_rate          : 0.0754
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.757622
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=1.066)
+  Has Errors:       ✅ (rate=0.075)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     59 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:40] Iteration #60
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 1.0452
+  🔴 error_rate          : 0.1153
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.754001
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=1.045)
+  Has Errors:       ✅ (rate=0.115)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     60 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:45] Iteration #61
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 1.0454
+  🔴 error_rate          : 0.1538
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.750381
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=1.045)
+  Has Errors:       ✅ (rate=0.154)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     61 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:50] Iteration #62
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.746760
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     62 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:35:55] Iteration #63
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.743139
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     63 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:00] Iteration #64
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2000
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.739518
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.200)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     64 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:06] Iteration #65
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.735897
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     65 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:11] Iteration #66
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.732276
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     66 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:16] Iteration #67
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.728655
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     67 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:21] Iteration #68
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.725035
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     68 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================
+
+
+[12:36:26] Iteration #69
+--------------------------------------------------------------------------------
+📊 Data points collected: 241 (need >30 for AI)
+
+📈 LATEST METRICS FROM PROMETHEUS:
+  ⚪ request_rate        : 0.2010
+  🔴 error_rate          : 1.0000
+  ⚪ p95_latency         : 0.0047
+  ⚪ memory_mb           : 0.0000
+  ⚪ active_connections  : 0.0000
+
+🧠 AI ANOMALY DETECTION:
+  MSE Score:           0.000000
+  Static Threshold:    5.592787
+  Dynamic Threshold:   1.721413
+  Effective Threshold: 5.592787
+
+  🟢 Normal operation
+     Score (0.0000) <= Threshold (5.5928)
+
+🔍 CORROBORATION CHECK:
+  Has Traffic:      ✅ (rate=0.201)
+  Has Errors:       ✅ (rate=1.000)
+  High Latency:     ❌ (latency=0.00s)
+  Corroborated:     ✅ YES
+
+🛠️  REMEDIATION STATUS:
+  ✅ No action needed - system healthy
+
+📋 QUICK DIAGNOSTICS:
+  Total samples:     241
+  Sequences built:   211
+  Score history:     69 samples
+  Avg MSE (recent):  0.000000
+  Max MSE (recent):  0.000000
+
+================================================================================

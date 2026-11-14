@@ -1,0 +1,494 @@
+﻿
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:14] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.33%
+[15:46:14] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:46:14] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.8s.
+
+[15:46:19] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:20] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.34%
+[15:46:20] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:46:25] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:26] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.40%
+[15:46:26] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:46:26] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 25.8s.
+
+[15:46:31] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:33] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.32%
+[15:46:33] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:46:38] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:39] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.38%
+[15:46:39] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:46:39] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 12.7s.
+
+[15:46:44] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:45] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.33%
+[15:46:45] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:46:50] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:51] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.40%
+[15:46:51] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:46:51] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 0.7s.
+
+[15:46:56] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:46:57] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.61%
+[15:46:57] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:46:57] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+
+════════════════════════════════════════════════════════════
+🛠️ [REMEDIATION] [15:46:57] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+════════════════════════════════════════════════════════════
+
+[15:46:58] POST-REMEDIATION: Waiting for container to stabilize...
+[SIMPLE-LSTM] Model loaded: 5 features, threshold=2.449630
+[SIMPLE-LSTM] Initialized successfully
+[SIMPLE-LSTM] Model: /models/lstm_model.pt
+[SIMPLE-LSTM] Threshold: 2.449630
+[SIMPLE-LSTM] Sequence length: 30
+[SIMPLE-LSTM] Starting monitoring loop...
+[SIMPLE-LSTM] Collecting initial samples...
+[SIMPLE-LSTM] Fast-forwarding warmup sequence...
+
+[15:47:08] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 1/2
+
+[15:47:13] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:47:14] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.42%
+[15:47:14] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:47:14] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+
+════════════════════════════════════════════════════════════
+🛠️ [REMEDIATION] [15:47:14] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+════════════════════════════════════════════════════════════
+
+[15:47:14] POST-REMEDIATION: Waiting for container to stabilize...
+[15:47:22] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+
+════════════════════════════════════════════════════════════
+✅ [RECOVERY] [15:47:25] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+════════════════════════════════════════════════════════════
+
+[15:47:25] POST-REMEDIATION: Injected faults auto-reset completed.
+[15:47:25] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+
+[15:47:30] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 1/2
+
+[15:47:35] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:47:36] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.79%
+[15:47:36] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:47:36] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.0s.
+
+[15:47:41] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:47:43] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.30%
+[15:47:43] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:47:48] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:47:49] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.36%
+[15:47:49] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:47:49] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 25.1s.
+
+[15:47:54] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:47:55] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.42%
+[15:47:55] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:48:00] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:02] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.26%
+[15:48:02] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:48:02] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 12.1s.
+
+[15:48:07] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:08] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.25%
+[15:48:08] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:48:13] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:14] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.30%
+[15:48:14] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:48:14] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+
+════════════════════════════════════════════════════════════
+🛠️ [REMEDIATION] [15:48:14] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+════════════════════════════════════════════════════════════
+
+[15:48:15] POST-REMEDIATION: Waiting for container to stabilize...
+[15:48:23] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+
+════════════════════════════════════════════════════════════
+✅ [RECOVERY] [15:48:26] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+════════════════════════════════════════════════════════════
+
+[15:48:26] POST-REMEDIATION: Injected faults auto-reset completed.
+[15:48:26] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+
+[15:48:31] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 1/2
+
+[15:48:36] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:37] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.34%
+[15:48:37] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:48:37] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.0s.
+
+[15:48:42] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:43] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.36%
+[15:48:43] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:48:48] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:49] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.13%
+[15:48:49] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:48:49] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 26.0s.
+
+[15:48:54] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:48:55] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.29%
+[15:48:55] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:49:00] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:49:02] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.30%
+[15:49:02] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:49:02] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 12.9s.
+
+[15:49:07] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:49:08] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.53%
+[15:49:08] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:49:14] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:49:15] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.47%
+[15:49:15] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:49:15] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 0.8s.
+
+[15:49:19] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:49:21] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.47%
+[15:49:21] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:49:21] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+
+════════════════════════════════════════════════════════════
+🛠️ [REMEDIATION] [15:49:21] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+════════════════════════════════════════════════════════════
+
+[15:49:22] POST-REMEDIATION: Waiting for container to stabilize...
+[SIMPLE-LSTM] Model loaded: 5 features, threshold=2.449630
+[SIMPLE-LSTM] Initialized successfully
+[SIMPLE-LSTM] Model: /models/lstm_model.pt
+[SIMPLE-LSTM] Threshold: 2.449630
+[SIMPLE-LSTM] Sequence length: 30
+[SIMPLE-LSTM] Starting monitoring loop...
+[SIMPLE-LSTM] Collecting initial samples...
+[SIMPLE-LSTM] Fast-forwarding warmup sequence...
+
+[15:49:32] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 1/2
+
+[15:49:37] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:49:38] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.16%
+[15:49:38] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:49:38] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+
+════════════════════════════════════════════════════════════
+🛠️ [REMEDIATION] [15:49:38] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+════════════════════════════════════════════════════════════
+
+[15:49:39] POST-REMEDIATION: Waiting for container to stabilize...
+[15:49:47] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+
+════════════════════════════════════════════════════════════
+✅ [RECOVERY] [15:49:50] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+════════════════════════════════════════════════════════════
+
+[15:49:50] POST-REMEDIATION: Injected faults auto-reset completed.
+[15:49:50] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+
+[15:49:55] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 1/2
+
+[15:50:00] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:01] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.63%
+[15:50:01] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:50:01] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.7s.
+
+[15:50:06] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:07] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.31%
+[15:50:07] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:50:12] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:14] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.39%
+[15:50:14] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:50:14] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 25.6s.
+
+[15:50:18] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:19] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.36%
+[15:50:19] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:50:24] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:25] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.02%
+[15:50:25] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:50:25] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.6s.
+
+[15:50:30] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:32] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.29%
+[15:50:32] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:50:37] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:50:39] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.33%
+[15:50:39] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:50:39] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 0.6s.

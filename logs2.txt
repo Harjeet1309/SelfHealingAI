@@ -1,0 +1,50 @@
+﻿[15:39:22] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.95%
+[15:39:22] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:39:27] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:39:28] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.51%
+[15:39:28] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:39:28] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.7s.
+
+[15:39:33] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:39:34] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.25%
+[15:39:34] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+
+[15:39:39] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+
+[15:39:41] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.33%
+[15:39:41] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[15:39:41] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 0.7s.
+
+[15:39:46] 🔴 ANOMALY
+  MSE: 24156.328125 | Threshold: 2.449630
+  Req/s: 0.00 | Err: 0.0% | Latency: 0.0ms
+  Anomaly confirmation: 2/2
+
+============================================================
+🚨 ANOMALY CONFIRMED - Triggering remediation
+============================================================
+

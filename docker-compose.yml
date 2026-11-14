@@ -4,12 +4,21 @@ services:
     build:
       context: ./api_service
     container_name: api_service
+    environment:
+      # Set INJECT_TOKEN in .env (or CI secrets) to protect /inject/* and /ai/report.
+      # Falls back to a weak local-dev default — CHANGE IN PRODUCTION.
+      - INJECT_TOKEN=${INJECT_TOKEN:-changeme-local-dev}
     volumes:
       - ./logs:/app/logs
     ports:
       - "8000:8000"
     networks:
       - selfheal_net
+    # ── FIX: Add SYS_PTRACE capability for psutil metrics collection ──
+    # This allows the process to read its own memory and network stats
+    # without requiring full --privileged mode (more secure)
+    cap_add:
+      - SYS_PTRACE
 
   prometheus:
     image: prom/prometheus:latest
@@ -39,6 +48,8 @@ services:
     container_name: remediation_engine
     environment:
       - PYTHONUNBUFFERED=1
+      - AI_THRESHOLD_MULTIPLIER=0.07
+      - INJECT_TOKEN=${INJECT_TOKEN:-changeme-local-dev}
       - PROMETHEUS_URL=http://prometheus:9090
       - API_REPORT_URL=http://api_service:8000/ai/report
       - API_RESET_URL=http://api_service:8000/inject/reset?target=all
@@ -54,7 +65,6 @@ services:
       - ANOMALY_CONFIRMATION_COUNT=1
       - AI_ENABLE_REMEDIATION=true
       - AI_REQUIRE_CORROBORATION=true
-      - AI_THRESHOLD_MULTIPLIER=4.0
       - AI_DYNAMIC_WINDOW_SAMPLES=240
       - AI_DYNAMIC_MIN_SAMPLES=40
       - AI_DYNAMIC_PERCENTILE=99
@@ -70,22 +80,26 @@ services:
       - ONLINE_FINE_TUNE_TRIGGER=500
       - THRESHOLD_PERSIST_INTERVAL_ITERATIONS=100
       - HEALTH_CHECK_ENABLED=true
-      - HEALTH_CHECK_RETRIES=10
-      - HEALTH_CHECK_DELAY_SECONDS=2.0
+      - HEALTH_CHECK_RETRIES=15
+      - HEALTH_CHECK_DELAY_SECONDS=3.0
       - HEALTH_URL_TEMPLATE=http://{container}:8000/health
+      # ── AI Configuration (V4 Defaults - Production Ready) ──────────
+      - AI_REQUIRE_CORROBORATION=true
+      - AI_MIN_ERROR_RATE_FOR_SIGNAL=0.02
+      - AI_MIN_REQUEST_RATE_FOR_SIGNAL=0.05
+      - AI_MIN_P95_FOR_SIGNAL=1.5
       # Multi-container routing (extensible)
       - CONTAINER_ROUTE_HTTP_500_SPIKE=api_service
       - CONTAINER_ROUTE_HTTP_503_SPIKE=api_service
       - CONTAINER_ROUTE_HTTP_504_SPIKE=api_service
       - CONTAINER_ROUTE_AI_ANOMALY_DETECTED=api_service
+      - CONTAINER_ROUTE_STATE_CRITICAL=api_service
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./models:/models
       - ./remediation_engine:/app/remediation_engine
       - ./requirements.txt:/app/requirements.txt
       - ./logs:/app/logs
-    ports:
-      - "5001:5001"
     depends_on:
       - api_service
       - prometheus
@@ -107,8 +121,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./logs:/app/logs
       - ./chaos_engine/scenarios:/app/scenarios
-    ports:
-      - "5002:5002"
     depends_on:
       - api_service
     networks:
@@ -127,7 +139,6 @@ services:
     container_name: toxiproxy
     ports:
       - "8001:8001"    # proxied api_service traffic (test clients use this port)
-      - "8474:8474"    # toxiproxy control API
     networks:
       - selfheal_net
     restart: unless-stopped
@@ -153,8 +164,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./logs:/app/logs
-    ports:
-      - "5003:5003"
     depends_on:
       - remediation_engine
     networks:
@@ -165,6 +174,28 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+
+  # ── Grafana (Industrial Analytical Dashboard) ───────────────────────
+  # Visualizes live Prometheus metrics, AI anomaly scores, and
+  # remediation events. Configured for anonymous access and embedding.
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - ./configs/grafana/provisioning:/etc/grafana/provisioning
+      - ./configs/grafana/dashboards:/etc/grafana/dashboards
+    networks:
+      - selfheal_net
+    depends_on:
+      - prometheus
+    restart: unless-stopped
 
 networks:
   selfheal_net:

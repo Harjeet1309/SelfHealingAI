@@ -38,7 +38,7 @@ from typing import Dict, Optional, List
 import docker
 import requests
 import yaml
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends, Header, Query
 from pydantic import BaseModel
 
 
@@ -55,6 +55,19 @@ os.makedirs("/app/logs", exist_ok=True)
 
 app = FastAPI(title="Chaos Controller", version="1.0.0")
 docker_client = docker.DockerClient(base_url=DOCKER_SOCKET)
+
+AUTH_TOKEN = os.getenv("INJECT_TOKEN", "changeme-local-dev")
+
+def require_token(
+    authorization: str = Header(None, alias="Authorization"),
+    token: str = Query(None, description="API auth token")
+):
+    header_token = None
+    if authorization and authorization.lower().startswith("bearer "):
+        header_token = authorization[7:].strip()
+    provided = header_token or token
+    if not provided or provided != AUTH_TOKEN:
+        raise HTTPException(status_code=401, detail="Unauthorized")
 
 
 # ─────────────────────────────────────────────
@@ -313,7 +326,7 @@ class FaultInjector:
 # ─────────────────────────────────────────────
 
 @app.get("/chaos/scenarios")
-def list_scenarios():
+def list_scenarios(_: None = Depends(require_token)):
     """List all available chaos scenarios with their metadata."""
     scenarios = load_scenarios()
     return {
@@ -335,7 +348,7 @@ def list_scenarios():
 
 
 @app.post("/chaos/run/{scenario_name}", response_model=ScenarioRunResult)
-def run_scenario(scenario_name: str):
+def run_scenario(scenario_name: str, _: None = Depends(require_token)):
     """Trigger a chaos scenario by name."""
     scenarios = load_scenarios()
 
@@ -393,7 +406,7 @@ def run_scenario(scenario_name: str):
 
 
 @app.get("/chaos/status")
-def get_status():
+def get_status(_: None = Depends(require_token)):
     """Return all currently active chaos scenarios."""
     return {
         "active_count": len(active_scenarios),
@@ -409,7 +422,7 @@ def get_status():
 
 
 @app.post("/chaos/abort")
-def abort_all():
+def abort_all(_: None = Depends(require_token)):
     """Emergency stop — abort all running chaos scenarios immediately."""
     aborted = []
     for name, meta in list(active_scenarios.items()):
@@ -424,7 +437,7 @@ def abort_all():
 
 
 @app.post("/chaos/abort/{scenario_name}")
-def abort_scenario(scenario_name: str):
+def abort_scenario(scenario_name: str, _: None = Depends(require_token)):
     """Abort a specific running scenario."""
     if scenario_name not in active_scenarios:
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario_name}' is not running.")
@@ -434,7 +447,7 @@ def abort_scenario(scenario_name: str):
 
 
 @app.get("/chaos/history")
-def get_history(limit: int = 50):
+def get_history(limit: int = 50, _: None = Depends(require_token)):
     """Return audit log of all past chaos runs."""
     return {"history": history[-limit:], "total_runs": len(history)}
 

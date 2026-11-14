@@ -1,0 +1,189 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║          🚀 SELF-HEALING AI - START HERE 🚀                   ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  STEP 1: CHOOSE YOUR STARTING METHOD                           │
+└────────────────────────────────────────────────────────────────┘
+
+  🟢 EASIEST (Recommended for first-time users)
+     
+     .\start.ps1
+     
+     → Starts everything and opens dashboard automatically
+
+
+  🟡 WITH TESTING (Recommended for validation)
+     
+     .\test_application.ps1
+     
+     → Starts app + runs comprehensive tests
+
+
+  🔵 MANUAL (For advanced users)
+     
+     docker-compose up -d --build
+     
+     → Manual control, see HOW_TO_RUN.md for details
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  STEP 2: WAIT FOR INITIALIZATION (30-60 seconds)               │
+└────────────────────────────────────────────────────────────────┘
+
+  You'll see:
+  ✓ Building images...
+  ✓ Starting containers...
+  ✓ Initializing AI engine...
+  ✓ Ready!
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  STEP 3: OPEN IN BROWSER                                       │
+└────────────────────────────────────────────────────────────────┘
+
+  Main Application:
+  → http://localhost:8000
+  
+  AI Dashboard (Most Important!):
+  → http://localhost:8000/dashboard
+  
+  Prometheus:
+  → http://localhost:9090
+  
+  Grafana:
+  → http://localhost:3001
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  STEP 4: VERIFY IT'S WORKING                                   │
+└────────────────────────────────────────────────────────────────┘
+
+  Quick Check:
+  
+  curl http://localhost:8000/health
+  
+  Expected: {"status":"healthy"}
+  
+  
+  Full Validation:
+  
+  docker exec -it api_service python /app/validate_metrics_fix.py
+  
+  Expected: All tests pass ✅
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  STEP 5: TRY FAULT INJECTION (Optional)                        │
+└────────────────────────────────────────────────────────────────┘
+
+  Inject a crash:
+  
+  curl -X POST http://localhost:8000/inject/500_checkout
+  
+  Then watch the AI Dashboard:
+  → http://localhost:8000/dashboard
+  
+  You should see:
+  • AI detects anomaly (10-20 seconds)
+  • Container restarts automatically
+  • System recovers
+  • Dashboard updates with action log
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  USEFUL COMMANDS                                               │
+└────────────────────────────────────────────────────────────────┘
+
+  View logs:
+  docker-compose logs -f
+  
+  View AI logs only:
+  docker-compose logs -f remediation_engine
+  
+  Stop application:
+  docker-compose down
+  
+  Restart a service:
+  docker-compose restart api_service
+  
+  Check status:
+  docker-compose ps
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  TROUBLESHOOTING                                               │
+└────────────────────────────────────────────────────────────────┘
+
+  Problem: Services won't start
+  Solution: Check if ports are in use
+  
+  netstat -ano | findstr "8000 9090"
+  
+  
+  Problem: Metrics show 0.0
+  Solution: Rebuild containers
+  
+  docker-compose down
+  docker-compose up --build -d
+  
+  
+  Problem: Dashboard not loading
+  Solution: Check API logs
+  
+  docker-compose logs api_service
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  DOCUMENTATION                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+  📄 QUICK_START.md           → Quick reference
+  📄 HOW_TO_RUN.md            → Detailed guide
+  📄 FIXES_APPLIED.md         → What was fixed
+  📄 PROJECT_DOCUMENTATION.md → Full architecture
+  📄 DEPLOYMENT_CHECKLIST.md  → Production deployment
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  WHAT TO EXPECT                                                │
+└────────────────────────────────────────────────────────────────┘
+
+  Normal Operation:
+  🟢 AI Status: HEALTHY
+  📊 Metrics updating every 5 seconds
+  📈 Dashboard showing live telemetry
+  
+  During Fault:
+  🔴 AI Status: ANOMALY DETECTED
+  ⚡ Remediation: Container restart
+  ✅ Recovery: Automatic healing
+  📝 Dashboard: Action logged
+
+
+┌────────────────────────────────────────────────────────────────┐
+│  SUCCESS INDICATORS                                            │
+└────────────────────────────────────────────────────────────────┘
+
+  ✅ All containers running (docker-compose ps)
+  ✅ API responds to /health
+  ✅ Memory metric > 0 MB
+  ✅ Connection metric > 0
+  ✅ AI engine initialized
+  ✅ Dashboard loads and updates
+  ✅ Fault injection triggers detection
+
+
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║  🎉 YOU'RE READY TO GO!                                       ║
+║                                                                ║
+║  Start with:  .\start.ps1                                     ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+Need help? Open HOW_TO_RUN.md for detailed instructions.

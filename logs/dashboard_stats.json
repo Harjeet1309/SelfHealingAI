@@ -1,0 +1,1 @@
+{"total_detections":211,"restarts_verified":181,"restarts_unverified":9,"remediations_suppressed":12,"log_only_actions":9,"remediations_fixed":181,"false_positives":9,"total_incidents":190,"error_counts":{"500_CRASH":21,"503_DEADLOCK":148,"503_OVERLOAD":12,"504_TIMEOUT":15,"429_SECURITY":9}}

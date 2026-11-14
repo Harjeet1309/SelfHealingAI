@@ -27,38 +27,18 @@ class PrometheusDataCollector:
         self.base_url       = os.getenv("PROMETHEUS_URL", base_url)
         self.request_timeout = int(os.getenv("PROMETHEUS_TIMEOUT_SECONDS", "10"))
 
-        # PromQL expressions — 5 features
+        # PromQL expressions — 5 features (Aggregated with sum)
         self.queries = {
-            # 1. Request throughput
-            "request_rate": (
-                'sum(rate(http_requests_total[30s])) or vector(0)'
-            ),
-
-            # 2. Error rate — fraction of requests that returned a non-200 status
+            "request_rate": 'sum(rate(http_requests_total[10s])) or vector(0)',
             "error_rate": (
-                '('
-                '  sum(rate(http_requests_total{status!="200"}[30s])) or vector(0)'
-                ') / ('
-                '  (sum(rate(http_requests_total[30s])) > 0) or vector(1)'
-                ')'
+                '(sum(rate(http_requests_total{status!="200"}[10s])) or vector(0)) / '
+                '(sum(rate(http_requests_total[10s])) > 0 or vector(1))'
             ),
-
-            # 3. p95 latency in seconds
             "p95_latency": (
-                'histogram_quantile(0.95,'
-                '  sum(rate(http_request_duration_seconds_bucket[30s])) by (le)'
-                ') or vector(0)'
+                'histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[10s])) by (le)) or vector(0)'
             ),
-
-            # 4. RSS memory in MB — exposed by MetricsMiddleware via psutil
-            "memory_mb": (
-                'process_memory_mb or vector(0)'
-            ),
-
-            # 5. Active TCP connections — exposed by MetricsMiddleware via psutil
-            "active_connections": (
-                'process_active_connections or vector(0)'
-            ),
+            "memory_mb": 'sum(process_memory_mb) or vector(0)',
+            "active_connections": 'sum(process_active_connections) or vector(0)',
         }
 
     # ──────────────────────────────────────────────────────────────────
@@ -72,38 +52,38 @@ class PrometheusDataCollector:
     ) -> np.ndarray:
         """
         Fetch a time-window of all 5 features from Prometheus.
-
-        Returns:
-            np.ndarray of shape (timesteps, 5) — clipped to shortest series.
-            Returns zeros of shape (1, 5) if Prometheus is unreachable.
         """
-        end   = datetime.utcnow()
-        start = end - timedelta(minutes=minutes)
-        step  = f"{step_seconds}s"
+        import time
+        end_epoch   = time.time()
+        start_epoch = end_epoch - (minutes * 60)
+        step        = f"{step_seconds}s"
 
         results = {}
         for name, query in self.queries.items():
-            values = self._query_range(query, start, end, step)
+            values = self._query_range(query, start_epoch, end_epoch, step)
             results[name] = values
 
-        # Align all series to the same length
-        min_len = min(len(v) for v in results.values())
-        if min_len == 0:
-            return np.zeros((1, FEATURE_COUNT), dtype=np.float32)
+        # Find the target length (max length returned by any query)
+        max_len = max((len(v) for v in results.values()), default=0)
+        if max_len == 0:
+            # Fallback to fetch_latest to at least get current pulse
+            latest = self.fetch_latest()
+            return latest
 
-        aligned = np.stack(
-            [results[name][-min_len:] for name in FEATURE_NAMES],
-            axis=1,
-        ).astype(np.float32)
+        # Pad shorter series with their last value or zeros to match max_len
+        final_series = []
+        for name in FEATURE_NAMES:
+            series = results.get(name, [])
+            if len(series) < max_len:
+                last_val = series[-1] if series else 0.0
+                padding = [last_val] * (max_len - len(series))
+                series = padding + series
+            final_series.append(series[-max_len:])
 
+        aligned = np.stack(final_series, axis=1).astype(np.float32)
         return aligned
 
     def fetch_latest(self) -> np.ndarray:
-        """
-        Fetch only the most recent single data point for all 5 features.
-        Returns np.ndarray of shape (1, 5).
-        Used for real-time logging and quick spot checks.
-        """
         results = {}
         for name, query in self.queries.items():
             try:
@@ -120,24 +100,20 @@ class PrometheusDataCollector:
         row = np.array([[results[name] for name in FEATURE_NAMES]], dtype=np.float32)
         return row
 
-    # ──────────────────────────────────────────────────────────────────
-    # PRIVATE
-    # ──────────────────────────────────────────────────────────────────
-
     def _query_range(
         self,
         query: str,
-        start: datetime,
-        end: datetime,
+        start: float,
+        end: float,
         step: str,
     ) -> List[float]:
-        """Execute a single Prometheus range query. Returns list of float values."""
+        """Execute a single Prometheus range query using float timestamps."""
         try:
             url    = f"{self.base_url}/api/v1/query_range"
             params = {
                 "query": query,
-                "start": start.isoformat() + "Z",
-                "end":   end.isoformat()   + "Z",
+                "start": str(start),
+                "end":   str(end),
                 "step":  step,
             }
             resp = requests.get(url, params=params, timeout=self.request_timeout)

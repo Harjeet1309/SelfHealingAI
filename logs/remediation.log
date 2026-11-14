@@ -1,0 +1,860 @@
+[2026-02-27 17:48:27] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.12%
+[2026-02-27 17:48:27] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:48:27] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:48:27] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:48:28] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:48:36] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:48:39] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:48:39] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:48:39] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:48:49] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 17:48:59] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 29.0s.
+[2026-02-27 17:49:14] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 14.0s.
+[2026-02-27 17:52:37] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.85%
+[2026-02-27 17:52:37] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:52:37] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:52:37] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:52:38] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:52:46] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:52:49] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:52:49] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:52:49] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:52:59] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.8s.
+[2026-02-27 17:53:14] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 23.9s.
+[2026-02-27 17:53:24] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.9s.
+[2026-02-27 17:53:40] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.38%
+[2026-02-27 17:53:40] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:53:40] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:53:40] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:53:41] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:53:49] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:53:52] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:53:52] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:53:52] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:56:05] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 2.48%
+[2026-02-27 17:56:05] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:56:05] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:56:05] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:56:06] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:56:14] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:56:17] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:56:17] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:56:17] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:56:27] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.8s.
+[2026-02-27 17:56:46] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.78%
+[2026-02-27 17:56:46] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:56:46] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:56:46] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:56:47] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:56:55] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:56:58] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:56:58] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:56:58] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:57:08] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 17:57:18] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 29.0s.
+[2026-02-27 17:57:28] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.8s.
+[2026-02-27 17:57:43] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.9s.
+[2026-02-27 17:57:49] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.87%
+[2026-02-27 17:57:49] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:57:49] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:57:49] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:57:50] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:57:58] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:58:01] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:58:01] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:58:01] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:58:11] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.1s.
+[2026-02-27 17:58:21] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 29.0s.
+[2026-02-27 17:58:36] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 14.1s.
+[2026-02-27 17:58:46] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 4.0s.
+[2026-02-27 17:58:52] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.58%
+[2026-02-27 17:58:52] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:58:52] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:58:52] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:58:53] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:59:12] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.15%
+[2026-02-27 17:59:12] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 17:59:12] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 17:59:12] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 17:59:13] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 17:59:21] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 17:59:24] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 17:59:24] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 17:59:24] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 17:59:34] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 17:59:44] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 28.9s.
+[2026-02-27 17:59:54] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.8s.
+[2026-02-27 18:00:09] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.9s.
+[2026-02-27 18:00:16] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.36%
+[2026-02-27 18:00:16] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:00:16] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:00:16] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:00:16] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:00:24] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:00:27] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:00:27] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:00:27] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:01:07] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 9.0s.
+[2026-02-27 18:01:19] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 2.72%
+[2026-02-27 18:01:19] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:01:19] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:01:19] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:01:19] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:01:40] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.95%
+[2026-02-27 18:01:40] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:01:40] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:01:40] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:01:40] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:01:48] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:01:51] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:01:52] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:01:52] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:02:01] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 18:02:12] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 29.0s.
+[2026-02-27 18:02:22] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.9s.
+[2026-02-27 18:02:36] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 4.0s.
+[2026-02-27 18:02:43] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 2.59%
+[2026-02-27 18:02:43] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:02:43] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:02:43] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:02:43] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:02:51] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:02:54] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:02:54] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:02:54] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:03:04] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 18:03:14] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 28.9s.
+[2026-02-27 18:03:25] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.8s.
+[2026-02-27 18:03:40] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.9s.
+[2026-02-27 18:03:46] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.05%
+[2026-02-27 18:03:46] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:03:46] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:03:46] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:03:47] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:04:02] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.43%
+[2026-02-27 18:04:02] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:04:02] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:04:02] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:04:03] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:04:11] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:04:14] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:04:14] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:04:14] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:04:24] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.8s.
+[2026-02-27 18:04:39] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 23.9s.
+[2026-02-27 18:04:49] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.9s.
+[2026-02-27 18:05:06] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.62%
+[2026-02-27 18:05:06] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:05:06] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:05:06] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:05:07] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:05:15] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:05:18] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:05:18] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:05:18] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:05:28] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 18:05:38] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 28.9s.
+[2026-02-27 18:05:48] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.8s.
+[2026-02-27 18:06:03] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.9s.
+[2026-02-27 18:06:09] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.61%
+[2026-02-27 18:06:09] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:06:09] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:06:09] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:06:10] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:06:28] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.13%
+[2026-02-27 18:06:28] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:06:28] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:06:28] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:06:29] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:06:37] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:06:40] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:06:40] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:06:40] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:06:50] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.8s.
+[2026-02-27 18:07:05] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 23.9s.
+[2026-02-27 18:07:15] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.9s.
+[2026-02-27 18:07:26] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.8s.
+[2026-02-27 18:07:31] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.21%
+[2026-02-27 18:07:31] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:07:31] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:07:31] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:07:32] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:07:40] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:07:43] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:07:43] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:07:43] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:07:53] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.9s.
+[2026-02-27 18:08:08] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 23.9s.
+[2026-02-27 18:08:19] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.8s.
+[2026-02-27 18:08:34] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 3.11%
+[2026-02-27 18:08:34] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:08:34] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:08:34] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:08:35] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:08:52] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.66%
+[2026-02-27 18:08:52] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:08:52] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:08:52] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:08:53] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:09:01] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:09:04] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:09:04] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:09:04] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:09:15] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.7s.
+[2026-02-27 18:09:25] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 28.6s.
+[2026-02-27 18:09:40] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 13.7s.
+[2026-02-27 18:09:50] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 3.6s.
+[2026-02-27 18:09:56] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.51%
+[2026-02-27 18:09:56] [AI ANOMALY] [DETECTION] AI Detected Behavioral Anomaly (Low CPU). Restarting.
+[2026-02-27 18:09:56] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: LSTM Anomaly Signal
+[2026-02-27 18:09:56] ACTION: Restarting api_service. REASON: LSTM Anomaly Signal
+[2026-02-27 18:09:57] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:10:05] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:10:08] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:10:08] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:10:08] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:13:13] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 4.60%
+[2026-02-27 18:13:13] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:13:13] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:13:13] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:13:13] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:13:21] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:13:24] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:13:24] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:13:24] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:13:34] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 18:13:47] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.90%
+[2026-02-27 18:13:47] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:13:47] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:13:47] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:13:47] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:13:55] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:13:58] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:13:58] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:13:58] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:17:08] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 3.37%
+[2026-02-27 18:17:08] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:17:08] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:17:08] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:17:08] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:17:17] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:17:20] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:17:20] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:17:20] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:17:29] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 39.0s.
+[2026-02-27 18:17:40] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 29.0s.
+[2026-02-27 18:17:50] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 18.9s.
+[2026-02-27 18:18:05] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 4.0s.
+[2026-02-27 18:18:11] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.20%
+[2026-02-27 18:18:11] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:18:11] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:18:11] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:18:11] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:18:19] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:18:22] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:18:22] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:18:22] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:26:45] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.16%
+[2026-02-27 18:26:45] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:26:45] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:26:45] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:26:46] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:26:55] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:26:58] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:26:58] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:26:58] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:27:08] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.8s.
+[2026-02-27 18:27:18] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.7s.
+[2026-02-27 18:27:29] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 16.5s.
+[2026-02-27 18:27:49] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.45%
+[2026-02-27 18:27:49] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:27:49] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:27:49] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:27:50] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:27:59] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:28:02] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:28:02] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:28:02] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:28:33] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 16.8s.
+[2026-02-27 18:28:43] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.7s.
+[2026-02-27 18:28:55] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 2.15%
+[2026-02-27 18:28:55] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:28:55] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:28:55] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:28:56] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:29:04] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:29:07] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:29:07] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:29:07] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:29:18] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.7s.
+[2026-02-27 18:29:29] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.5s.
+[2026-02-27 18:29:39] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.5s.
+[2026-02-27 18:30:00] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.69%
+[2026-02-27 18:30:00] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:30:00] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:30:00] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:30:01] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:30:09] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:30:12] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:30:12] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:30:12] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:30:22] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.9s.
+[2026-02-27 18:30:33] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.9s.
+[2026-02-27 18:30:43] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.8s.
+[2026-02-27 18:30:53] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 7.8s.
+[2026-02-27 18:31:05] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.99%
+[2026-02-27 18:31:05] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:31:05] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:31:05] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:31:06] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:31:14] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:31:17] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:31:17] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:31:17] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:31:29] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.7s.
+[2026-02-27 18:31:39] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.7s.
+[2026-02-27 18:31:49] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.6s.
+[2026-02-27 18:32:00] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.5s.
+[2026-02-27 18:32:40] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.96%
+[2026-02-27 18:32:40] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:32:40] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:32:40] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:32:41] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:32:49] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:32:52] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:32:52] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:32:52] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:33:03] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.6s.
+[2026-02-27 18:33:13] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.5s.
+[2026-02-27 18:33:23] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.5s.
+[2026-02-27 18:33:34] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.4s.
+[2026-02-27 18:33:45] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 2.63%
+[2026-02-27 18:33:45] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:33:45] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:33:45] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:33:46] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:33:54] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:33:57] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:33:57] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:33:57] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:34:08] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.8s.
+[2026-02-27 18:34:18] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.8s.
+[2026-02-27 18:34:30] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.64%
+[2026-02-27 18:34:30] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:34:30] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:34:30] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:34:31] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:34:40] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:34:43] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:34:43] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:34:43] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:35:03] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.8s.
+[2026-02-27 18:35:15] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 16.7s.
+[2026-02-27 18:35:25] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.6s.
+[2026-02-27 18:35:37] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 1.02%
+[2026-02-27 18:35:37] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:35:37] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:35:38] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:35:41] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:35:49] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:35:52] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:35:52] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:35:52] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:36:02] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 38.8s.
+[2026-02-27 18:36:13] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.7s.
+[2026-02-27 18:36:23] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.6s.
+[2026-02-27 18:36:33] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 7.5s.
+[2026-02-27 18:36:48] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.66%
+[2026-02-27 18:36:48] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:36:48] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:36:48] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:36:49] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:36:57] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:37:00] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:37:00] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:37:00] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:37:11] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 37.7s.
+[2026-02-27 18:37:21] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 27.7s.
+[2026-02-27 18:37:32] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 17.6s.
+[2026-02-27 18:37:43] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.3s.
+[2026-02-27 18:37:54] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.98%
+[2026-02-27 18:37:54] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:37:54] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:37:54] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:37:55] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:38:03] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:38:06] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:38:06] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:38:06] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:42:31] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.98%
+[2026-02-27 18:42:31] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:42:31] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:42:31] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:42:32] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:42:40] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:42:43] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:42:43] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:42:43] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-02-27 18:42:58] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 0.52%
+[2026-02-27 18:42:58] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-02-27 18:42:58] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-02-27 18:42:58] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-02-27 18:42:59] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-02-27 18:43:07] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-02-27 18:43:10] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-02-27 18:43:10] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-02-27 18:43:10] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-03-03 09:29:23] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 3.52%
+[2026-03-03 09:29:23] [AI ANOMALY] [DETECTION] AI Behavioral Anomaly (Low CPU). Classifying as Potential Deadlock.
+[2026-03-03 09:29:23] ⚡ REMEDIATION: AI ANOMALY | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-03 09:29:23] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-03 09:29:27] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 09:29:33] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 09:29:36] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 09:29:36] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 09:29:36] ✅ RECOVERY: AI ANOMALY | Service restored successfully
+[2026-03-03 09:29:46] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 40.3s.
+[2026-03-03 09:29:56] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 30.1s.
+[2026-03-03 09:30:10] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 16.7s.
+[2026-03-03 09:30:20] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 6.5s.
+[2026-03-03 09:30:30] [AI ANOMALY] Analyzing Alert | Target: api_service | CPU: 93.23%
+[2026-03-03 09:30:30] [AI ANOMALY] [DETECTION] AI Anomaly + High CPU. Classifying as Overload. Suppressing.
+[2026-03-03 13:17:45] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.92%
+[2026-03-03 13:17:45] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-03 13:17:45] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-03 13:17:46] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-03 13:17:47] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:17:55] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:17:58] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:17:58] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:17:58] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-03 13:17:58] Skipping restart for HTTP_503_SPIKE; cooldown active for 48.9s.
+[2026-03-03 13:18:11] Skipping restart for STATE_CRITICAL; cooldown active for 35.5s.
+[2026-03-03 13:18:27] Skipping restart for STATE_CRITICAL; cooldown active for 20.3s.
+[2026-03-03 13:18:40] Skipping restart for STATE_CRITICAL; cooldown active for 6.7s.
+[2026-03-03 13:18:52] [CRITICAL STATE] Analyzing Alert | Target: api_service | CPU: 87.23%
+[2026-03-03 13:18:52] [CRITICAL STATE] [DETECTION] Direct critical state failure. FORCE RESTART.
+[2026-03-03 13:18:52] ⚡ REMEDIATION: CRITICAL STATE | [REMEDIATION]  Restarting api_service container | Reason: Direct State Failure
+[2026-03-03 13:18:52] ACTION: Restarting api_service. REASON: Direct State Failure
+[2026-03-03 13:18:53] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:19:10] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 85.31%
+[2026-03-03 13:19:10] [503 DEADLOCK/OVERLOAD] [DETECTION] Overload condition. Suppressing restart.
+[2026-03-03 13:19:12] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 77.11%
+[2026-03-03 13:19:12] [503 DEADLOCK/OVERLOAD] [DETECTION] Overload condition. Suppressing restart.
+[2026-03-03 13:19:18] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 78.44%
+[2026-03-03 13:19:18] [503 DEADLOCK/OVERLOAD] [DETECTION] Overload condition. Suppressing restart.
+[2026-03-03 13:19:25] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 74.23%
+[2026-03-03 13:19:25] [503 DEADLOCK/OVERLOAD] [DETECTION] Overload condition. Suppressing restart.
+[2026-03-03 13:19:29] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 78.46%
+[2026-03-03 13:19:29] [503 DEADLOCK/OVERLOAD] [DETECTION] Overload condition. Suppressing restart.
+[2026-03-03 13:19:36] [CRITICAL STATE] Analyzing Alert | Target: api_service | CPU: 75.94%
+[2026-03-03 13:19:36] [CRITICAL STATE] [DETECTION] Direct critical state failure. FORCE RESTART.
+[2026-03-03 13:19:36] ⚡ REMEDIATION: CRITICAL STATE | [REMEDIATION]  Restarting api_service container | Reason: Direct State Failure
+[2026-03-03 13:19:36] ACTION: Restarting api_service. REASON: Direct State Failure
+[2026-03-03 13:19:36] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:19:44] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:19:47] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:19:48] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:19:48] ✅ RECOVERY: CRITICAL STATE | Service restored successfully
+[2026-03-03 13:19:53] Skipping restart for STATE_CRITICAL; cooldown active for 43.8s.
+[2026-03-03 13:20:11] Skipping restart for HTTP_504_SPIKE; cooldown active for 25.4s.
+[2026-03-03 13:20:21] Skipping restart for HTTP_504_SPIKE; cooldown active for 15.2s.
+[2026-03-03 13:20:35] Skipping restart for HTTP_504_SPIKE; cooldown active for 1.9s.
+[2026-03-03 13:20:41] [504 TIMEOUT] Analyzing Alert | Target: api_service | CPU: 1.16%
+[2026-03-03 13:20:41] [504 TIMEOUT] [DETECTION] Gateway Timeout. Clearing connections.
+[2026-03-03 13:20:41] ⚡ REMEDIATION: 504 TIMEOUT | [REMEDIATION]  Restarting api_service container | Reason: 504 Timeout Cleanup
+[2026-03-03 13:20:41] ACTION: Restarting api_service. REASON: 504 Timeout Cleanup
+[2026-03-03 13:20:43] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:20:51] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:20:53] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:20:53] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:20:52] ✅ RECOVERY: 504 TIMEOUT | Service restored successfully
+[2026-03-03 13:21:12] Skipping restart for HTTP_500_SPIKE; cooldown active for 30.4s.
+[2026-03-03 13:21:25] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.31%
+[2026-03-03 13:21:25] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-03 13:21:25] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-03 13:21:25] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-03 13:21:25] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:21:33] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:21:36] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:21:36] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:21:36] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-03 13:21:36] Skipping restart for HTTP_504_SPIKE; cooldown active for 48.9s.
+[2026-03-03 13:21:47] Skipping restart for HTTP_504_SPIKE; cooldown active for 38.7s.
+[2026-03-03 13:22:00] Skipping restart for HTTP_504_SPIKE; cooldown active for 25.4s.
+[2026-03-03 13:22:10] Skipping restart for HTTP_504_SPIKE; cooldown active for 15.3s.
+[2026-03-03 13:26:47] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.79%
+[2026-03-03 13:26:47] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-03 13:26:47] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-03 13:26:47] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-03 13:26:49] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:26:57] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:27:00] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:27:00] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:27:00] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-03 13:27:00] Skipping restart for HTTP_500_SPIKE; cooldown active for 48.8s.
+[2026-03-03 13:28:17] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 0.18%
+[2026-03-03 13:28:17] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-03 13:28:17] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-03 13:28:17] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-03 13:28:18] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 13:28:24] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 13:28:27] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 13:28:27] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 13:28:27] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-03 15:54:24] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.30%
+[2026-03-03 15:54:24] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-03 15:54:24] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-03 15:54:24] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-03 15:54:26] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 15:54:32] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 15:54:35] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 15:54:35] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 15:54:35] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-03 15:54:35] Skipping restart for HTTP_500_SPIKE; cooldown active for 50.7s.
+[2026-03-03 15:59:37] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 0.91%
+[2026-03-03 15:59:37] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-03 15:59:37] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-03 15:59:37] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-03 15:59:39] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 15:59:45] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 15:59:48] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 15:59:48] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 15:59:48] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-03 15:59:48] Skipping restart for HTTP_500_SPIKE; cooldown active for 50.7s.
+[2026-03-03 16:07:54] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.25%
+[2026-03-03 16:07:54] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-03 16:07:54] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-03 16:07:54] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-03 16:07:56] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 16:08:23] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.66%
+[2026-03-03 16:08:23] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-03 16:08:23] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-03 16:08:23] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-03 16:08:24] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 16:08:32] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 16:08:34] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 16:08:34] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 16:08:34] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-03 16:08:39] Skipping restart for HTTP_503_SPIKE; cooldown active for 45.5s.
+[2026-03-03 16:15:35] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.88%
+[2026-03-03 16:15:35] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-03 16:15:35] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-03 16:15:35] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-03 16:15:36] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-03 16:15:43] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-03 16:15:46] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-03 16:15:46] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-03 16:15:46] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-03 16:15:46] Skipping restart for HTTP_503_SPIKE; cooldown active for 49.9s.
+[2026-03-04 06:30:12] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.11%
+[2026-03-04 06:30:12] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-04 06:30:12] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-04 06:30:12] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-04 06:30:13] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-04 06:30:21] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-04 06:30:24] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-04 06:30:24] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-04 06:30:24] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-04 06:30:24] Skipping restart for HTTP_503_SPIKE; cooldown active for 48.9s.
+[2026-03-04 06:31:46] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.70%
+[2026-03-04 06:31:46] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-04 06:31:46] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-04 06:31:46] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-04 06:31:47] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-04 06:31:55] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-04 06:31:58] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-04 06:31:59] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-04 06:31:59] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-04 06:32:35] Skipping restart for HTTP_503_SPIKE; cooldown active for 12.8s.
+[2026-03-04 06:32:45] Skipping restart for HTTP_503_SPIKE; cooldown active for 2.6s.
+[2026-03-04 06:32:51] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 4.88%
+[2026-03-04 06:32:51] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-04 06:32:51] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-04 06:32:51] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-04 06:32:53] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-04 06:33:01] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-04 06:33:04] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-04 06:33:04] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-04 06:33:04] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-04 06:34:14] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.44%
+[2026-03-04 06:34:14] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-03-04 06:34:14] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-03-04 06:34:14] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-03-04 06:34:16] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-04 06:34:24] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-04 06:34:27] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-04 06:34:27] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-04 06:34:27] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-03-27 05:18:38] [504 TIMEOUT] Analyzing Alert | Target: api_service | CPU: 0.72%
+[2026-03-27 05:18:38] [504 TIMEOUT] [DETECTION] Gateway Timeout. Clearing connections.
+[2026-03-27 05:18:38] ⚡ REMEDIATION: 504 TIMEOUT | [REMEDIATION]  Restarting api_service container | Reason: 504 Timeout Cleanup
+[2026-03-27 05:18:38] ACTION: Restarting api_service. REASON: 504 Timeout Cleanup
+[2026-03-27 05:18:40] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 05:18:48] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 05:18:51] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 05:18:51] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 05:18:51] ✅ RECOVERY: 504 TIMEOUT | Service restored successfully
+[2026-03-27 05:18:51] Skipping restart for HTTP_504_SPIKE; cooldown active for 48.5s.
+[2026-03-27 05:25:00] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 0.78%
+[2026-03-27 05:25:00] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 05:25:00] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 05:25:00] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 05:25:01] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 05:25:09] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 05:25:12] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 05:25:12] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 05:25:12] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 05:25:12] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 48.9s.
+[2026-03-27 05:25:28] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.01%
+[2026-03-27 05:25:28] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 05:25:28] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 05:25:28] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 05:25:28] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 05:25:36] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 05:25:39] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 05:25:40] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 05:25:40] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 05:38:37] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.07%
+[2026-03-27 05:38:37] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 05:38:37] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 05:38:37] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 05:38:39] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 05:38:47] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 05:38:50] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 05:38:50] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 05:38:50] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 05:38:50] Skipping restart for HTTP_500_SPIKE; cooldown active for 48.8s.
+[2026-03-27 06:27:16] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 3.68%
+[2026-03-27 06:27:16] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 06:27:16] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 06:27:16] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 06:27:25] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 06:27:33] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 06:27:36] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 06:27:36] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 06:27:36] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 06:27:36] Skipping restart for STATE_CRITICAL; cooldown active for 48.7s.
+[2026-03-27 06:28:06] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.03%
+[2026-03-27 06:28:06] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 06:28:06] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 06:28:06] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 06:28:07] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 06:28:15] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 06:28:18] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 06:28:18] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 06:28:18] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 09:17:50] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 0.19%
+[2026-03-27 09:17:50] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 09:17:50] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 09:17:50] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 09:17:52] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 09:18:00] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 09:18:03] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 09:18:03] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 09:18:03] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 09:18:08] Skipping restart for HTTP_500_SPIKE; cooldown active for 43.8s.
+[2026-03-27 09:18:23] Skipping restart for STATE_CRITICAL; cooldown active for 28.7s.
+[2026-03-27 09:18:30] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 0.17%
+[2026-03-27 09:18:30] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-03-27 09:18:30] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-03-27 09:18:30] ACTION: Restarting api_service. REASON: App Crash
+[2026-03-27 09:18:31] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-03-27 09:18:39] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-03-27 09:18:42] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-03-27 09:18:42] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-03-27 09:18:42] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-03-27 09:18:42] Skipping restart for HTTP_500_SPIKE; cooldown active for 48.9s.
+[2026-04-01 13:19:20] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 4.67%
+[2026-04-01 13:19:20] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-01 13:19:20] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-01 13:19:20] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-01 13:19:20] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 13:19:27] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 13:19:30] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 13:19:30] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 13:19:30] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-01 13:19:35] Skipping restart for HTTP_503_SPIKE; cooldown active for 45.1s.
+[2026-04-01 13:19:45] Skipping restart for HTTP_429_SPIKE; cooldown active for 35.0s.
+[2026-04-01 13:19:58] Skipping restart for HTTP_429_SPIKE; cooldown active for 21.8s.
+[2026-04-01 13:20:08] Skipping restart for HTTP_429_SPIKE; cooldown active for 11.7s.
+[2026-04-01 13:20:22] [504 TIMEOUT] Analyzing Alert | Target: api_service | CPU: 2.85%
+[2026-04-01 13:20:22] [504 TIMEOUT] [DETECTION] Gateway Timeout. Clearing connections.
+[2026-04-01 13:20:22] ⚡ REMEDIATION: 504 TIMEOUT | [REMEDIATION]  Restarting api_service container | Reason: 504 Timeout Cleanup
+[2026-04-01 13:20:22] ACTION: Restarting api_service. REASON: 504 Timeout Cleanup
+[2026-04-01 13:20:23] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 13:20:31] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 13:20:34] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 13:20:34] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 13:20:34] ✅ RECOVERY: 504 TIMEOUT | Service restored successfully
+[2026-04-01 13:20:34] Skipping restart for HTTP_429_SPIKE; cooldown active for 48.9s.
+[2026-04-01 13:20:47] Skipping restart for HTTP_429_SPIKE; cooldown active for 35.8s.
+[2026-04-01 13:20:58] Skipping restart for HTTP_429_SPIKE; cooldown active for 25.6s.
+[2026-04-01 13:21:08] Skipping restart for HTTP_429_SPIKE; cooldown active for 15.5s.
+[2026-04-01 13:43:09] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.71%
+[2026-04-01 13:43:09] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-01 13:43:09] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-01 13:43:09] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-01 13:43:10] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 13:43:18] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 13:43:21] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 13:43:21] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 13:43:21] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-01 13:51:00] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.42%
+[2026-04-01 13:51:00] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 13:51:02] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.40%
+[2026-04-01 13:51:02] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 13:51:09] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.85%
+[2026-04-01 13:51:09] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 13:51:15] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.38%
+[2026-04-01 13:51:15] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 13:51:21] [CRITICAL STATE] Analyzing Alert | Target: api_service | CPU: 0.32%
+[2026-04-01 13:51:21] [CRITICAL STATE] [DETECTION] Direct critical state failure. FORCE RESTART.
+[2026-04-01 13:51:21] ⚡ REMEDIATION: CRITICAL STATE | [REMEDIATION]  Restarting api_service container | Reason: Direct State Failure
+[2026-04-01 13:51:21] ACTION: Restarting api_service. REASON: Direct State Failure
+[2026-04-01 13:51:20] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 13:51:28] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 13:51:31] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 13:51:31] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 13:51:31] ✅ RECOVERY: CRITICAL STATE | Service restored successfully
+[2026-04-01 13:51:38] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.37%
+[2026-04-01 13:51:38] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 13:55:34] [CRITICAL STATE] Analyzing Alert | Target: api_service | CPU: 0.49%
+[2026-04-01 13:55:34] [CRITICAL STATE] [DETECTION] Direct critical state failure. FORCE RESTART.
+[2026-04-01 13:55:34] ⚡ REMEDIATION: CRITICAL STATE | [REMEDIATION]  Restarting api_service container | Reason: Direct State Failure
+[2026-04-01 13:55:34] ACTION: Restarting api_service. REASON: Direct State Failure
+[2026-04-01 13:55:35] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 13:55:43] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 13:55:46] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 13:55:46] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 13:55:46] ✅ RECOVERY: CRITICAL STATE | Service restored successfully
+[2026-04-01 13:55:51] Skipping restart for HTTP_429_SPIKE; cooldown active for 43.9s.
+[2026-04-01 13:56:07] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 0.36%
+[2026-04-01 13:56:07] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 14:02:00] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 1.20%
+[2026-04-01 14:02:00] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 14:02:16] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 1.61%
+[2026-04-01 14:02:16] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-01 14:02:23] [CRITICAL STATE] Analyzing Alert | Target: api_service | CPU: 1.93%
+[2026-04-01 14:02:23] [CRITICAL STATE] [DETECTION] Direct critical state failure. FORCE RESTART.
+[2026-04-01 14:02:23] ⚡ REMEDIATION: CRITICAL STATE | [REMEDIATION]  Restarting api_service container | Reason: Direct State Failure
+[2026-04-01 14:02:23] ACTION: Restarting api_service. REASON: Direct State Failure
+[2026-04-01 14:02:24] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-01 14:02:29] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-01 14:02:32] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-01 14:02:32] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-01 14:02:33] ✅ RECOVERY: CRITICAL STATE | Service restored successfully
+[2026-04-01 14:02:38] Skipping restart for STATE_CRITICAL; cooldown active for 46.0s.
+[2026-04-01 14:02:53] [429 BOT ATTACK] Analyzing Alert | Target: api_service | CPU: 2.78%
+[2026-04-01 14:02:53] [429 BOT ATTACK] [DETECTION] Bot Attack. Logging only.
+[2026-04-02 05:04:36] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 5.97%
+[2026-04-02 05:04:36] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-02 05:04:36] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-02 05:04:36] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-02 05:04:38] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-02 05:04:46] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-02 05:04:49] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-02 05:04:49] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-02 05:04:49] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-02 05:06:17] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.33%
+[2026-04-02 05:06:17] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-02 05:06:17] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-02 05:06:17] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-02 05:06:18] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-02 05:06:26] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-02 05:06:30] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-02 05:06:30] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-02 05:06:30] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-02 05:14:51] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 5.81%
+[2026-04-02 05:14:51] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-02 05:14:51] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-02 05:14:51] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-02 05:15:05] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 3.33%
+[2026-04-02 05:15:05] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-02 05:15:05] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-02 05:15:05] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-02 05:15:07] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-02 05:15:15] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-02 05:15:18] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-02 05:15:19] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-02 05:15:19] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-02 05:15:19] Skipping restart for AI_ANOMALY_DETECTED; cooldown active for 48.7s.
+[2026-04-21 04:45:53] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 0.94%
+[2026-04-21 04:45:53] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-21 04:45:53] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-21 04:45:53] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-21 04:45:54] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 04:46:02] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 04:46:05] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 04:46:06] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 04:46:06] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-21 04:46:06] Skipping restart for HTTP_503_SPIKE; cooldown active for 48.4s.
+[2026-04-21 04:46:47] Skipping restart for HTTP_429_SPIKE; cooldown active for 7.6s.
+[2026-04-21 04:47:06] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.77%
+[2026-04-21 04:47:06] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-21 04:47:06] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-21 04:47:06] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-21 04:47:07] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 04:47:15] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 04:47:18] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 04:47:19] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 04:47:19] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-21 04:47:19] Skipping restart for HTTP_429_SPIKE; cooldown active for 48.8s.
+[2026-04-21 04:47:29] Skipping restart for HTTP_429_SPIKE; cooldown active for 38.5s.
+[2026-04-21 04:47:39] Skipping restart for HTTP_429_SPIKE; cooldown active for 28.2s.
+[2026-04-21 04:47:49] Skipping restart for HTTP_500_SPIKE; cooldown active for 18.0s.
+[2026-04-21 04:48:00] Skipping restart for HTTP_500_SPIKE; cooldown active for 7.7s.
+[2026-04-21 04:48:11] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 1.99%
+[2026-04-21 04:48:11] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-04-21 04:48:11] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-04-21 04:48:11] ACTION: Restarting api_service. REASON: App Crash
+[2026-04-21 04:48:12] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 04:48:20] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 04:48:23] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 04:48:23] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 04:48:23] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-04-21 04:48:23] Skipping restart for HTTP_429_SPIKE; cooldown active for 48.9s.
+[2026-04-21 04:48:34] Skipping restart for HTTP_429_SPIKE; cooldown active for 38.6s.
+[2026-04-21 04:48:49] Skipping restart for HTTP_504_SPIKE; cooldown active for 23.2s.
+[2026-04-21 04:48:59] Skipping restart for HTTP_504_SPIKE; cooldown active for 12.9s.
+[2026-04-21 04:49:14] [500 CRASH] Analyzing Alert | Target: api_service | CPU: 3.59%
+[2026-04-21 04:49:14] [500 CRASH] [DETECTION] Localized application crash detected via Rule-Engine.
+[2026-04-21 04:49:14] ⚡ REMEDIATION: 500 CRASH | [REMEDIATION]  Restarting api_service container | Reason: App Crash
+[2026-04-21 04:49:14] ACTION: Restarting api_service. REASON: App Crash
+[2026-04-21 04:49:15] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 04:49:23] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 04:49:26] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 04:49:26] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 04:49:26] ✅ RECOVERY: 500 CRASH | Service restored successfully
+[2026-04-21 04:49:26] Skipping restart for HTTP_504_SPIKE; cooldown active for 48.6s.
+[2026-04-21 04:49:37] Skipping restart for HTTP_504_SPIKE; cooldown active for 38.3s.
+[2026-04-21 04:49:47] Skipping restart for HTTP_504_SPIKE; cooldown active for 28.0s.
+[2026-04-21 04:49:57] Skipping restart for HTTP_504_SPIKE; cooldown active for 17.7s.
+[2026-04-21 04:50:07] Skipping restart for HTTP_504_SPIKE; cooldown active for 7.3s.
+[2026-04-21 04:50:20] [504 TIMEOUT] Analyzing Alert | Target: api_service | CPU: 2.02%
+[2026-04-21 04:50:20] [504 TIMEOUT] [DETECTION] Gateway Timeout. Clearing connections.
+[2026-04-21 04:50:20] ⚡ REMEDIATION: 504 TIMEOUT | [REMEDIATION]  Restarting api_service container | Reason: 504 Timeout Cleanup
+[2026-04-21 04:50:20] ACTION: Restarting api_service. REASON: 504 Timeout Cleanup
+[2026-04-21 04:50:21] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 04:50:30] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 04:50:33] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 04:50:34] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 04:50:34] ✅ RECOVERY: 504 TIMEOUT | Service restored successfully
+[2026-04-21 09:14:56] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 4.25%
+[2026-04-21 09:14:56] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-21 09:14:56] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-21 09:14:56] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-21 09:14:57] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 09:15:05] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 09:15:08] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 09:15:09] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 09:15:09] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
+[2026-04-21 09:16:29] [503 DEADLOCK/OVERLOAD] Analyzing Alert | Target: api_service | CPU: 1.37%
+[2026-04-21 09:16:29] [503 DEADLOCK/OVERLOAD] [DETECTION] Deadlock recognized. Restarting.
+[2026-04-21 09:16:29] ⚡ REMEDIATION: 503 DEADLOCK/OVERLOAD | [REMEDIATION]  Restarting api_service container | Reason: App Deadlock
+[2026-04-21 09:16:29] ACTION: Restarting api_service. REASON: App Deadlock
+[2026-04-21 09:16:30] POST-REMEDIATION: Waiting for container to stabilize...
+[2026-04-21 09:16:38] POST-REMEDIATION: Verifying health at http://api_service:8000/health?bypass_faults=true ...
+[2026-04-21 09:16:41] POST-REMEDIATION: Health VERIFIED on attempt 1. Recovery confirmed.
+[2026-04-21 09:16:41] POST-REMEDIATION: Injected faults auto-reset completed.
+[2026-04-21 09:16:41] ✅ RECOVERY: 503 DEADLOCK/OVERLOAD | Service restored successfully
